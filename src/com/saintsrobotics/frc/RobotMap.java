@@ -8,7 +8,7 @@ package com.saintsrobotics.frc;
  */
 public class RobotMap {
     // Motors
-    public static final int LEFT_MOTOR = 1;
+    public static final int LEFT_MOTOR = 2;
     public static final int RIGHT_MOTOR = 4;
     
     // Joysticks
