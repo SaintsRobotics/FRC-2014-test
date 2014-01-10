@@ -12,6 +12,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import com.saintsrobotics.frc.commands.*;
+import com.saintsrobotics.frc.logging.Logger;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -21,6 +22,7 @@ import com.saintsrobotics.frc.commands.*;
  * directory.
  */
 public class Robot extends IterativeRobot {
+    private final Logger logger = Logger.getLogger();
     private Command driveWithJoysticksCommand;
 
     /**
@@ -35,31 +37,59 @@ public class Robot extends IterativeRobot {
         CommandBase.init();
     }
 
+    /**
+     * This function is called at the beginning of autonomous.
+     */
     public void autonomousInit() {
+        logger.log("Autonomous has begun!");
     }
 
     /**
-     * This function is called periodically during autonomous
+     * This function is called periodically during autonomous.
      */
     public void autonomousPeriodic() {
         Scheduler.getInstance().run();
     }
 
+    /**
+     * This function is called at the beginning of operator control.
+     */
     public void teleopInit() {
-	driveWithJoysticksCommand.start();
+	logger.log("Teleop has begun!");
+        driveWithJoysticksCommand.start();
     }
 
     /**
-     * This function is called periodically during operator control
+     * This function is called periodically during operator control.
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
     }
     
     /**
-     * This function is called periodically during test mode
+     * This function is called at the beginning of test mode.
+     */
+    public void testInit() {
+        logger.log("Test mode has begun!");
+    }
+    
+    /**
+     * This function is called periodically during test mode.
      */
     public void testPeriodic() {
         LiveWindow.run();
+    }
+    
+    /**
+     * This function is called at the beginning of disabled mode.
+     */
+    public void disabledInit() {
+        logger.log("The robot has been disabled :(");
+    }
+
+    /**
+     * This function is called periodically during disabled mode.
+     */
+    public void disabledPeriodic() {
     }
 }
