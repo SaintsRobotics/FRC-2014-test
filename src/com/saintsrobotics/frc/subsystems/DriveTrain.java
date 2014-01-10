@@ -23,6 +23,10 @@ public class DriveTrain extends Subsystem {
         drive.arcadeDrive(moveValue, rotateValue);
     }
     
+    public void tankDrive(double leftValue, double rightValue) {
+        drive.tankDrive(leftValue, rightValue);
+    }
+    
     public void stop() {
         drive.stopMotor();
     }
@@ -31,6 +35,5 @@ public class DriveTrain extends Subsystem {
         drive.setSafetyEnabled(enabled);
     }
     
-    protected void initDefaultCommand() {
-    }
+    protected void initDefaultCommand() {}
 }
