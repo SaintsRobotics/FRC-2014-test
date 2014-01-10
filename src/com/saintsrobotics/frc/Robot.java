@@ -55,7 +55,7 @@ public class Robot extends IterativeRobot {
      * This function is called at the beginning of operator control.
      */
     public void teleopInit() {
-	logger.log("Teleop has begun!");
+        logger.log("Teleop has begun!");
         driveWithJoysticksCommand.start();
     }
 
