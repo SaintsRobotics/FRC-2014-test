@@ -90,6 +90,5 @@ public class Robot extends IterativeRobot {
     /**
      * This function is called periodically during disabled mode.
      */
-    public void disabledPeriodic() {
-    }
+    public void disabledPeriodic() {}
 }
