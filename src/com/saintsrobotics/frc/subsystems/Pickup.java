@@ -14,7 +14,7 @@ public class Pickup extends Subsystem {
     private final SpeedController motor;
     
     public Pickup() {
-        motor = new Victor(RobotMap.LEFT_MOTOR);
+        motor = new Victor(RobotMap.PICKUP_MOTOR);
     }
     
     public void run(double speed) {

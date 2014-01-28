@@ -24,6 +24,7 @@ import com.saintsrobotics.frc.logging.Logger;
 public class Robot extends IterativeRobot {
     private final Logger logger = Logger.getLogger();
     private Command driveWithJoysticksCommand;
+    private Command pickupBallCommand;
 
     /**
      * This function is run when the robot is first started up and should be
@@ -32,6 +33,7 @@ public class Robot extends IterativeRobot {
     public void robotInit() {
         // Initialize commands
         driveWithJoysticksCommand = new DriveWithJoysticks();
+        pickupBallCommand = new PickupBall();
 
         // Initialize all subsystems
         CommandBase.init();

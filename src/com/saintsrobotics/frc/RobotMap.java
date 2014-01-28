@@ -10,6 +10,7 @@ public class RobotMap {
     // Motors
     public static final int LEFT_MOTOR = 2;
     public static final int RIGHT_MOTOR = 4;
+    public static final int PICKUP_MOTOR = 3;
     
     // Joysticks
     public static final int JOYSTICK = 1;
