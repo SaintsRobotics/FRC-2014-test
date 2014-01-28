@@ -14,7 +14,8 @@ import com.saintsrobotics.frc.subsystems.*;
 public abstract class CommandBase extends Command {
     public static OI oi;
     // Create a single static instance of all of your subsystems
-    public static DriveTrain driveTrain = new DriveTrain();
+    public static final DriveTrain driveTrain = new DriveTrain();
+    public static final Pickup pickup = new Pickup();
 
     public static void init() {
         // This MUST be here. If the OI creates Commands (which it very likely

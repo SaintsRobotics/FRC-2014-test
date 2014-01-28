@@ -10,6 +10,7 @@ public class OI {
     private static final double DRIVE_JOYSTICK_DEAD_ZONE = 0.13;
     private static final int ARCADE_THROTTLE_JOYSTICK_AXIS = 2;
     private static final int ARCADE_TURN_JOYSTICK_AXIS = 4;
+    private static final int PICKUP_JOYSTICK_AXIS = 5;
     private final Joystick driveJoystick;
     
     public OI() {
@@ -25,6 +26,12 @@ public class OI {
     public double getDriveJoyX() {
         double value = driveJoystick.getRawAxis(ARCADE_TURN_JOYSTICK_AXIS);
         value = deadZone(value, DRIVE_JOYSTICK_DEAD_ZONE);
+        return value;
+    }
+    
+    public double getPickupJoy() {
+        double value = driveJoystick.getRawAxis(PICKUP_JOYSTICK_AXIS);
+        //value = deadZone(value, DRIVE_JOYSTICK_DEAD_ZONE);
         return value;
     }
     
