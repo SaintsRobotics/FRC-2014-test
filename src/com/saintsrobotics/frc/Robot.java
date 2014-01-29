@@ -59,6 +59,7 @@ public class Robot extends IterativeRobot {
     public void teleopInit() {
         logger.log("Teleop has begun!");
         driveWithJoysticksCommand.start();
+        pickupBallCommand.start();
     }
 
     /**
