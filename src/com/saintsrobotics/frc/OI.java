@@ -8,30 +8,46 @@ import edu.wpi.first.wpilibj.Joystick;
  */
 public class OI {
     private static final double DRIVE_JOYSTICK_DEAD_ZONE = 0.13;
-    private static final int ARCADE_THROTTLE_JOYSTICK_AXIS = 2;
-    private static final int ARCADE_TURN_JOYSTICK_AXIS = 4;
+    private static final double NO_DEAD_ZONE = 0;
+    private static final int ARCADE_MOVE_JOYSTICK_AXIS = 2;
+    private static final boolean ARCADE_MOVE_JOYSTICK_INVERTED = false;
+    private static final int ARCADE_ROTATE_JOYSTICK_AXIS = 4;
+    private static final boolean ARCADE_ROTATE_JOYSTICK_INVERTED = true;
     private static final int PICKUP_JOYSTICK_AXIS = 3;
+    private static final boolean PICKUP_JOYSTICK_INVERTED = false;
     private final Joystick driveJoystick;
     
     public OI() {
         driveJoystick = new Joystick(RobotMap.JOYSTICK);
     }
     
-    public double getDriveJoyY() {
-        double value = driveJoystick.getRawAxis(ARCADE_THROTTLE_JOYSTICK_AXIS);
-        value = deadZone(value, DRIVE_JOYSTICK_DEAD_ZONE);
-        return value;
+    public double getArcadeMoveJoy() {
+        return readAxisValue(ARCADE_MOVE_JOYSTICK_AXIS,
+                DRIVE_JOYSTICK_DEAD_ZONE,
+                ARCADE_MOVE_JOYSTICK_INVERTED);
     }
     
-    public double getDriveJoyX() {
-        double value = driveJoystick.getRawAxis(ARCADE_TURN_JOYSTICK_AXIS);
-        value = deadZone(value, DRIVE_JOYSTICK_DEAD_ZONE);
-        return value;
+    public double getArcadeRotateJoy() {
+        return readAxisValue(ARCADE_ROTATE_JOYSTICK_AXIS,
+                DRIVE_JOYSTICK_DEAD_ZONE,
+                ARCADE_ROTATE_JOYSTICK_INVERTED);
     }
     
     public double getPickupJoy() {
-        double value = driveJoystick.getRawAxis(PICKUP_JOYSTICK_AXIS);
-        //value = deadZone(value, DRIVE_JOYSTICK_DEAD_ZONE);
+        return readAxisValue(PICKUP_JOYSTICK_AXIS,
+                NO_DEAD_ZONE,
+                PICKUP_JOYSTICK_INVERTED);
+    }
+    
+    private double readAxisValue(int axis, double deadZone, boolean inverted) {
+        double value = driveJoystick.getRawAxis(axis);
+        
+        if (inverted) {
+            value = -value;
+        }
+        
+        value = deadZone(value, deadZone);
+        
         return value;
     }
     
