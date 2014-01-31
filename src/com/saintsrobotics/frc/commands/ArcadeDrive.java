@@ -1,11 +1,11 @@
 package com.saintsrobotics.frc.commands;
 
 /**
- *
+ * Arcade drive for the robot.
  * @author Saints Robotics
  */
-public class DriveWithJoysticks extends CommandBase {
-    public DriveWithJoysticks() {
+public class ArcadeDrive extends CommandBase {
+    public ArcadeDrive() {
         requires(driveTrain);
     }
     

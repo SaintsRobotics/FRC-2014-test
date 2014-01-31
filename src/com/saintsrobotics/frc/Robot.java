@@ -32,7 +32,7 @@ public class Robot extends IterativeRobot {
      */
     public void robotInit() {
         // Initialize commands
-        driveWithJoysticksCommand = new DriveWithJoysticks();
+        driveWithJoysticksCommand = new ArcadeDrive();
         pickupBallCommand = new PickupBall();
 
         // Initialize all subsystems
