@@ -23,7 +23,8 @@ import com.saintsrobotics.frc.logging.Logger;
  */
 public class Robot extends IterativeRobot {
     private final Logger logger = Logger.getLogger();
-    private Command driveWithJoysticksCommand;
+    private Command arcadeDriveCommand;
+    private Command tankDriveCommand;
     private Command pickupBallCommand;
 
     /**
@@ -32,7 +33,8 @@ public class Robot extends IterativeRobot {
      */
     public void robotInit() {
         // Initialize commands
-        driveWithJoysticksCommand = new ArcadeDrive();
+        arcadeDriveCommand = new ArcadeDrive();
+        tankDriveCommand = new TankDrive();
         pickupBallCommand = new PickupBall();
 
         // Initialize all subsystems
@@ -58,7 +60,7 @@ public class Robot extends IterativeRobot {
      */
     public void teleopInit() {
         logger.log("Teleop has begun!");
-        driveWithJoysticksCommand.start();
+        arcadeDriveCommand.start();
         pickupBallCommand.start();
     }
 
