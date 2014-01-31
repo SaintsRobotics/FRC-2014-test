@@ -87,7 +87,7 @@ public class Robot extends IterativeRobot {
      * This function is called at the beginning of disabled mode.
      */
     public void disabledInit() {
-        logger.log("The robot has been disabled :(");
+        logger.log("The robot has been disabled.");
     }
 
     /**
