@@ -7,7 +7,7 @@ import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
- *
+ * The drive train for the robot.
  * @author Saints Robotics
  */
 public class DriveTrain extends Subsystem {

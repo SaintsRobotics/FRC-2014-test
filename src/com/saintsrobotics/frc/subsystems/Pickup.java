@@ -6,7 +6,7 @@ import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
- *
+ * The pickup for the robot.
  * @author Saints Robotics
  */
 public class Pickup extends Subsystem {
