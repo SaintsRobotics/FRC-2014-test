@@ -19,14 +19,27 @@ public class DriveTrain extends Subsystem {
         drive = new RobotDrive(leftMotor, rightMotor);
     }
     
+    /**
+     * Allow the robot to be driven using arcade drive.
+     * @param moveValue the move speed
+     * @param rotateValue the rotation speed
+     */
     public void arcadeDrive(double moveValue, double rotateValue) {
         drive.arcadeDrive(moveValue, rotateValue);
     }
     
+    /**
+     * Allow the robot to be driven using tank drive.
+     * @param leftValue the speed for the left
+     * @param rightValue the speed for the right
+     */
     public void tankDrive(double leftValue, double rightValue) {
         drive.tankDrive(leftValue, rightValue);
     }
     
+    /**
+     * Stop the robot.
+     */
     public void stop() {
         drive.stopMotor();
     }
