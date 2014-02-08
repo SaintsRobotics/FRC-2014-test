@@ -2,7 +2,7 @@ package com.saintsrobotics.frc.subsystems;
 
 import com.saintsrobotics.frc.RobotMap;
 import edu.wpi.first.wpilibj.SpeedController;
-import edu.wpi.first.wpilibj.Victor;
+import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
@@ -13,7 +13,7 @@ public class Pickup extends Subsystem {
     private final SpeedController motor;
     
     public Pickup() {
-        motor = new Victor(RobotMap.PICKUP_MOTOR);
+        motor = new Talon(RobotMap.PICKUP_MOTOR);
     }
     
     public void run(double speed) {

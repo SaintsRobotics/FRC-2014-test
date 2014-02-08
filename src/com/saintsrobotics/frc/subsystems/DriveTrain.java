@@ -3,7 +3,7 @@ package com.saintsrobotics.frc.subsystems;
 import com.saintsrobotics.frc.RobotMap;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.SpeedController;
-import edu.wpi.first.wpilibj.Victor;
+import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
@@ -14,8 +14,8 @@ public class DriveTrain extends Subsystem {
     private final RobotDrive drive;
     
     public DriveTrain() {
-        SpeedController leftMotor = new Victor(RobotMap.LEFT_MOTOR);
-        SpeedController rightMotor = new Victor(RobotMap.RIGHT_MOTOR);
+        SpeedController leftMotor = new Talon(RobotMap.LEFT_MOTOR);
+        SpeedController rightMotor = new Talon(RobotMap.RIGHT_MOTOR);
         drive = new RobotDrive(leftMotor, rightMotor);
     }
     
