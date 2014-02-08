@@ -14,9 +14,11 @@ public class DriveTrain extends Subsystem {
     private final RobotDrive drive;
     
     public DriveTrain() {
-        SpeedController leftMotor = new Talon(RobotMap.LEFT_MOTOR);
-        SpeedController rightMotor = new Talon(RobotMap.RIGHT_MOTOR);
-        drive = new RobotDrive(leftMotor, rightMotor);
+        SpeedController leftMotor1 = new Talon(RobotMap.LEFT_MOTOR_1);
+        SpeedController leftMotor2 = new Talon(RobotMap.LEFT_MOTOR_2);
+        SpeedController rightMotor1 = new Talon(RobotMap.RIGHT_MOTOR_1);
+        SpeedController rightMotor2 = new Talon(RobotMap.RIGHT_MOTOR_2);
+        drive = new RobotDrive(leftMotor1, leftMotor2, rightMotor1, rightMotor2);
     }
     
     /**

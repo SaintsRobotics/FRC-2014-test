@@ -8,9 +8,11 @@ package com.saintsrobotics.frc;
  */
 public class RobotMap {
     // Motors
-    public static final int LEFT_MOTOR = 2;
-    public static final int RIGHT_MOTOR = 4;
-    public static final int PICKUP_MOTOR = 3;
+    public static final int LEFT_MOTOR_1 = 1;
+    public static final int LEFT_MOTOR_2 = 2;
+    public static final int RIGHT_MOTOR_1 = 3;
+    public static final int RIGHT_MOTOR_2 = 4;
+    public static final int PICKUP_MOTOR = 5;
     
     // If you are using multiple modules, make sure to define both the port
     // number and the module. For example you with a rangefinder:
