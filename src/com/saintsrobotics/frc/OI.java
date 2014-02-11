@@ -1,6 +1,8 @@
 package com.saintsrobotics.frc;
 
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import utilities.XboxButton;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -20,12 +22,15 @@ public class OI {
     private static final int TANK_RIGHT_JOYSTICK_AXIS = 5;
     
     private static final int PICKUP_JOYSTICK_AXIS = 3;
+    private static final XboxButton DRIVE_MODE_BUTTON = XboxButton.X;
     
     // Instance members
     private final Joystick driveJoystick;
+    private final JoystickButton driveModeButton;
     
     public OI() {
         driveJoystick = new Joystick(DRIVE_JOYSTICK_PORT);
+        driveModeButton = new JoystickButton(driveJoystick, DRIVE_MODE_BUTTON.value);
     }
     
     public double getArcadeMoveJoy() {
