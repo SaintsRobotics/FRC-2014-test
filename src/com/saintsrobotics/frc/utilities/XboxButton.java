@@ -1,4 +1,4 @@
-package utilities;
+package com.saintsrobotics.frc.utilities;
 
 /**
  * A type-safe enum for the Xbox buttons.
