@@ -56,9 +56,12 @@ public class OI {
         shiftGearUpButton = new JoystickButton(driveJoystick,
                 SHIFT_GEAR_UP_BUTTON.value);
         shiftGearUpButton.whenPressed(new ShiftGearUp());
+        shiftGearUpButton.whenReleased(new StopShiftGear());
         
         shiftGearDownButton = new JoystickButton(driveJoystick,
                 SHIFT_GEAR_DOWN_BUTTON.value);
+        shiftGearDownButton.whenPressed(new ShiftGearDown());
+        shiftGearDownButton.whenReleased(new StopShiftGear());
     }
     
     public double getArcadeMoveJoy() {
