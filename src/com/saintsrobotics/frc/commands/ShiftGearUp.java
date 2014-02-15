@@ -6,10 +6,10 @@ import edu.wpi.first.wpilibj.Relay;
  * Shift the gear up or down, depending on its current state.
  * @author Saints Robotics
  */
-public class ShiftGear extends CommandBase {
+public class ShiftGearUp extends CommandBase {
     private boolean isFinished;
     
-    public ShiftGear() {
+    public ShiftGearUp() {
         requires(gearShifter);
     }
     

@@ -19,8 +19,12 @@ public class Pickup extends Subsystem {
         relay.set(Relay.Value.kForward);
     }
     
-    public void stop() {
+    public void reverse() {
         relay.set(Relay.Value.kReverse);
+    }
+    
+    public void stop() {
+        relay.set(Relay.Value.kOff);
     }
     
     protected void initDefaultCommand() {}

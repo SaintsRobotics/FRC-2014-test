@@ -39,6 +39,13 @@ public class GearShifter extends Subsystem {
     public void shiftDown() {
         relay.set(Relay.Value.kReverse);
     }
+    
+    /**
+     * Stop shifting gears.
+     */
+    public void stop() {
+        relay.set(Relay.Value.kOff);
+    }
 
     protected void initDefaultCommand() {}
 }

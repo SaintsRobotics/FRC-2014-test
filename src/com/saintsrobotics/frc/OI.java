@@ -23,15 +23,17 @@ public class OI {
     private static final XboxAxis TANK_LEFT_JOYSTICK_AXIS = XboxAxis.LEFT_THUMB_Y;
     private static final XboxAxis TANK_RIGHT_JOYSTICK_AXIS = XboxAxis.RIGHT_THUMB_Y;
     
-    private static final XboxButton PICKUP_BUTTON = XboxButton.B;
+    private static final XboxButton PICKUP_BUTTON = XboxButton.RIGHT_BUMPER;
+    private static final XboxButton RELEASE_PICKUP_BUTTON = XboxButton.LEFT_BUMPER;
     private static final XboxButton SHOOT_BUTTON = XboxButton.A;
-    private static final XboxButton GEAR_SHIFTER_BUTTON = XboxButton.X;
+    private static final XboxButton SHIFT_GEAR_UP_BUTTON = XboxButton.X;
     
     // Instance members
     private final Joystick driveJoystick;
     private final JoystickButton pickupButton;
+    private final JoystickButton releasePickupButton;
     private final JoystickButton shootButton;
-    private final JoystickButton gearShifterButton;
+    private final JoystickButton shiftGearUpButton;
     
     public OI() {
         driveJoystick = new Joystick(DRIVE_JOYSTICK_PORT);
@@ -40,12 +42,18 @@ public class OI {
         pickupButton.whenPressed(new PickupBall());
         pickupButton.whenReleased(new StopPickupBall());
         
+        releasePickupButton = new JoystickButton(driveJoystick,
+                RELEASE_PICKUP_BUTTON.value);
+        releasePickupButton.whenPressed(new ReleasePickupBall());
+        releasePickupButton.whenReleased(new StopPickupBall());
+        
         shootButton = new JoystickButton(driveJoystick, SHOOT_BUTTON.value);
         shootButton.whenPressed(new ShootBall());
         shootButton.whenReleased(new StopShootBall());
         
-        gearShifterButton = new JoystickButton(driveJoystick, GEAR_SHIFTER_BUTTON.value);
-        gearShifterButton.whenPressed(new ShiftGear());
+        shiftGearUpButton = new JoystickButton(driveJoystick,
+                SHIFT_GEAR_UP_BUTTON.value);
+        shiftGearUpButton.whenPressed(new ShiftGearUp());
     }
     
     public double getArcadeMoveJoy() {

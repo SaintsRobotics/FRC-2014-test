@@ -16,11 +16,11 @@ public class Shooter extends Subsystem {
     }
     
     public void shoot() {
-        relay.set(Relay.Value.kForward);
+        relay.set(Relay.Value.kOn);
     }
     
     public void stop() {
-        relay.set(Relay.Value.kReverse);
+        relay.set(Relay.Value.kOff);
     }
 
     protected void initDefaultCommand() {}
