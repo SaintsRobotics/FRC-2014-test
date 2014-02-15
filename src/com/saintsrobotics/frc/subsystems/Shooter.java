@@ -5,23 +5,23 @@ import edu.wpi.first.wpilibj.Relay;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
- * The pickup for the robot.
+ * The shooter for the robot.
  * @author Saints Robotics
  */
-public class Pickup extends Subsystem {
+public class Shooter extends Subsystem {
     private final Relay relay;
     
-    public Pickup() {
-        relay = new Relay(RobotMap.PICKUP_RELAY, RobotMap.PICKUP_RELAY_DIRECTION);
+    public Shooter() {
+        relay = new Relay(RobotMap.SHOOTER_RELAY, RobotMap.SHOOTER_RELAY_DIRECTION);
     }
     
-    public void pickup() {
+    public void shoot() {
         relay.set(Relay.Value.kForward);
     }
     
     public void stop() {
         relay.set(Relay.Value.kReverse);
     }
-    
+
     protected void initDefaultCommand() {}
 }

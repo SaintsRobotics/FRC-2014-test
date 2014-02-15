@@ -1,14 +1,14 @@
 package com.saintsrobotics.frc.commands;
 
 /**
- * Pick up a ball with the pickup mechanism.
+ * Stop shooting a ball with the shooter.
  * @author Saints Robotics
  */
-public class PickupBall extends CommandBase {
+public class StopShootBall extends CommandBase {
     private boolean isFinished;
     
-    public PickupBall() {
-        requires(pickup);
+    public StopShootBall() {
+        requires(shooter);
     }
     
     /**
@@ -20,7 +20,7 @@ public class PickupBall extends CommandBase {
      * Called repeatedly when this Command is scheduled to run.
      */
     protected void execute() {
-        pickup.pickup();
+        shooter.stop();
         isFinished = true;
     }
 

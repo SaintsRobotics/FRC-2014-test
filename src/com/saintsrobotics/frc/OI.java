@@ -1,5 +1,6 @@
 package com.saintsrobotics.frc;
 
+import com.saintsrobotics.frc.commands.*;
 import com.saintsrobotics.frc.utilities.XboxButton;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -21,16 +22,28 @@ public class OI {
     private static final int TANK_LEFT_JOYSTICK_AXIS = 2;
     private static final int TANK_RIGHT_JOYSTICK_AXIS = 5;
     
-    private static final int PICKUP_JOYSTICK_AXIS = 3;
     private static final XboxButton DRIVE_MODE_BUTTON = XboxButton.X;
+    private static final XboxButton PICKUP_MODE_BUTTON = XboxButton.B;
+    private static final XboxButton SHOOT_MODE_BUTTON = XboxButton.A;
     
     // Instance members
     private final Joystick driveJoystick;
     private final JoystickButton driveModeButton;
+    private final JoystickButton pickupButton;
+    private final JoystickButton shootButton;
     
     public OI() {
         driveJoystick = new Joystick(DRIVE_JOYSTICK_PORT);
+        
         driveModeButton = new JoystickButton(driveJoystick, DRIVE_MODE_BUTTON.value);
+        
+        pickupButton = new JoystickButton(driveJoystick, PICKUP_MODE_BUTTON.value);
+        pickupButton.whenPressed(new PickupBall());
+        pickupButton.whenReleased(new StopPickupBall());
+        
+        shootButton = new JoystickButton(driveJoystick, SHOOT_MODE_BUTTON.value);
+        shootButton.whenPressed(new ShootBall());
+        shootButton.whenReleased(new StopShootBall());
     }
     
     public double getArcadeMoveJoy() {
@@ -52,10 +65,6 @@ public class OI {
     public double getTankRightJoy() {
         return readAxisValue(TANK_RIGHT_JOYSTICK_AXIS,
                 DRIVE_JOYSTICK_DEAD_ZONE);
-    }
-    
-    public double getPickupJoy() {
-        return readAxisValue(PICKUP_JOYSTICK_AXIS);
     }
     
     private double readAxisValue(int axis) {

@@ -16,6 +16,7 @@ public abstract class CommandBase extends Command {
     // Create a single static instance of all of your subsystems
     public static final DriveTrain driveTrain = new DriveTrain();
     public static final Pickup pickup = new Pickup();
+    public static final Shooter shooter = new Shooter();
 
     public static void init() {
         // This MUST be here. If the OI creates Commands (which it very likely
