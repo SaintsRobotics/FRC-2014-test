@@ -30,15 +30,12 @@ public class OI {
     
     // Instance members
     private final Joystick driveJoystick;
-    private final JoystickButton driveModeButton;
     private final JoystickButton pickupButton;
     private final JoystickButton shootButton;
     private final JoystickButton gearShifterButton;
     
     public OI() {
         driveJoystick = new Joystick(DRIVE_JOYSTICK_PORT);
-        
-        driveModeButton = new JoystickButton(driveJoystick, DRIVE_MODE_BUTTON.value);
         
         pickupButton = new JoystickButton(driveJoystick, PICKUP_BUTTON.value);
         pickupButton.whenPressed(new PickupBall());
