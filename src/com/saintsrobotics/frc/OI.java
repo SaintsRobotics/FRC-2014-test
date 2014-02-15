@@ -1,6 +1,7 @@
 package com.saintsrobotics.frc;
 
 import com.saintsrobotics.frc.commands.*;
+import com.saintsrobotics.frc.utilities.XboxAxis;
 import com.saintsrobotics.frc.utilities.XboxButton;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -15,12 +16,12 @@ public class OI {
     private static final double DRIVE_JOYSTICK_DEAD_ZONE = 0.13;
     private static final int DRIVE_JOYSTICK_PORT = 1;
     
-    private static final int ARCADE_MOVE_JOYSTICK_AXIS = 2;
-    private static final int ARCADE_ROTATE_JOYSTICK_AXIS = 4;
+    private static final XboxAxis ARCADE_MOVE_JOYSTICK_AXIS = XboxAxis.LEFT_THUMB_Y;
+    private static final XboxAxis ARCADE_ROTATE_JOYSTICK_AXIS = XboxAxis.RIGHT_THUMB_X;
     private static final boolean ARCADE_ROTATE_JOYSTICK_INVERTED = true;
     
-    private static final int TANK_LEFT_JOYSTICK_AXIS = 2;
-    private static final int TANK_RIGHT_JOYSTICK_AXIS = 5;
+    private static final XboxAxis TANK_LEFT_JOYSTICK_AXIS = XboxAxis.LEFT_THUMB_Y;
+    private static final XboxAxis TANK_RIGHT_JOYSTICK_AXIS = XboxAxis.RIGHT_THUMB_Y;
     
     private static final XboxButton DRIVE_MODE_BUTTON = XboxButton.Y;
     private static final XboxButton PICKUP_BUTTON = XboxButton.B;
@@ -72,16 +73,17 @@ public class OI {
                 DRIVE_JOYSTICK_DEAD_ZONE);
     }
     
-    private double readAxisValue(int axis) {
+    private double readAxisValue(XboxAxis axis) {
         return readAxisValue(axis, 0);
     }
     
-    private double readAxisValue(int axis, double deadZone) {
+    private double readAxisValue(XboxAxis axis, double deadZone) {
         return readAxisValue(axis, deadZone, false);
     }
     
-    private double readAxisValue(int axis, double deadZone, boolean inverted) {
-        double value = driveJoystick.getRawAxis(axis);
+    private double readAxisValue(XboxAxis axis, double deadZone, boolean inverted) {
+        int axisValue = axis.value;
+        double value = driveJoystick.getRawAxis(axisValue);
         
         if (inverted) {
             value = -value;

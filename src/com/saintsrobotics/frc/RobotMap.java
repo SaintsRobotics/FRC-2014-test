@@ -23,7 +23,7 @@ public class RobotMap {
     
     public static final int SHOOTER_RELAY = 2;
     public static final Relay.Direction SHOOTER_RELAY_DIRECTION =
-            Relay.Direction.kBoth;
+            Relay.Direction.kForward;
     
     public static final int GEAR_SHIFTER_RELAY = 3;
     public static final Relay.Direction GEAR_SHIFTER_RELAY_DIRECTION =
