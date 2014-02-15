@@ -22,28 +22,33 @@ public class OI {
     private static final int TANK_LEFT_JOYSTICK_AXIS = 2;
     private static final int TANK_RIGHT_JOYSTICK_AXIS = 5;
     
-    private static final XboxButton DRIVE_MODE_BUTTON = XboxButton.X;
-    private static final XboxButton PICKUP_MODE_BUTTON = XboxButton.B;
-    private static final XboxButton SHOOT_MODE_BUTTON = XboxButton.A;
+    private static final XboxButton DRIVE_MODE_BUTTON = XboxButton.Y;
+    private static final XboxButton PICKUP_BUTTON = XboxButton.B;
+    private static final XboxButton SHOOT_BUTTON = XboxButton.A;
+    private static final XboxButton GEAR_SHIFTER_BUTTON = XboxButton.X;
     
     // Instance members
     private final Joystick driveJoystick;
     private final JoystickButton driveModeButton;
     private final JoystickButton pickupButton;
     private final JoystickButton shootButton;
+    private final JoystickButton gearShifterButton;
     
     public OI() {
         driveJoystick = new Joystick(DRIVE_JOYSTICK_PORT);
         
         driveModeButton = new JoystickButton(driveJoystick, DRIVE_MODE_BUTTON.value);
         
-        pickupButton = new JoystickButton(driveJoystick, PICKUP_MODE_BUTTON.value);
+        pickupButton = new JoystickButton(driveJoystick, PICKUP_BUTTON.value);
         pickupButton.whenPressed(new PickupBall());
         pickupButton.whenReleased(new StopPickupBall());
         
-        shootButton = new JoystickButton(driveJoystick, SHOOT_MODE_BUTTON.value);
+        shootButton = new JoystickButton(driveJoystick, SHOOT_BUTTON.value);
         shootButton.whenPressed(new ShootBall());
         shootButton.whenReleased(new StopShootBall());
+        
+        gearShifterButton = new JoystickButton(driveJoystick, GEAR_SHIFTER_BUTTON.value);
+        gearShifterButton.whenPressed(new ShiftGear());
     }
     
     public double getArcadeMoveJoy() {
