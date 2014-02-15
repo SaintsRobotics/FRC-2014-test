@@ -23,7 +23,6 @@ public class OI {
     private static final XboxAxis TANK_LEFT_JOYSTICK_AXIS = XboxAxis.LEFT_THUMB_Y;
     private static final XboxAxis TANK_RIGHT_JOYSTICK_AXIS = XboxAxis.RIGHT_THUMB_Y;
     
-    private static final XboxButton DRIVE_MODE_BUTTON = XboxButton.Y;
     private static final XboxButton PICKUP_BUTTON = XboxButton.B;
     private static final XboxButton SHOOT_BUTTON = XboxButton.A;
     private static final XboxButton GEAR_SHIFTER_BUTTON = XboxButton.X;
