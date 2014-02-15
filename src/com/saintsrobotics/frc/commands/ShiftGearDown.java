@@ -1,13 +1,13 @@
 package com.saintsrobotics.frc.commands;
 
 /**
- * Shift the gear up.
+ * Shift the gear down.
  * @author Saints Robotics
  */
-public class ShiftGearUp extends CommandBase {
+public class ShiftGearDown extends CommandBase {
     private boolean isFinished;
     
-    public ShiftGearUp() {
+    public ShiftGearDown() {
         requires(gearShifter);
     }
     
@@ -20,7 +20,7 @@ public class ShiftGearUp extends CommandBase {
      * Called repeatedly when this Command is scheduled to run.
      */
     protected void execute() {
-        gearShifter.shiftUp();
+        gearShifter.shiftDown();
         isFinished = true;
     }
 

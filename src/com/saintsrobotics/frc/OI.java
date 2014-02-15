@@ -26,7 +26,8 @@ public class OI {
     private static final XboxButton PICKUP_BUTTON = XboxButton.RIGHT_BUMPER;
     private static final XboxButton RELEASE_PICKUP_BUTTON = XboxButton.LEFT_BUMPER;
     private static final XboxButton SHOOT_BUTTON = XboxButton.A;
-    private static final XboxButton SHIFT_GEAR_UP_BUTTON = XboxButton.X;
+    private static final XboxButton SHIFT_GEAR_UP_BUTTON = XboxButton.B;
+    private static final XboxButton SHIFT_GEAR_DOWN_BUTTON = XboxButton.X;
     
     // Instance members
     private final Joystick driveJoystick;
@@ -34,6 +35,7 @@ public class OI {
     private final JoystickButton releasePickupButton;
     private final JoystickButton shootButton;
     private final JoystickButton shiftGearUpButton;
+    private final JoystickButton shiftGearDownButton;
     
     public OI() {
         driveJoystick = new Joystick(DRIVE_JOYSTICK_PORT);
@@ -54,6 +56,9 @@ public class OI {
         shiftGearUpButton = new JoystickButton(driveJoystick,
                 SHIFT_GEAR_UP_BUTTON.value);
         shiftGearUpButton.whenPressed(new ShiftGearUp());
+        
+        shiftGearDownButton = new JoystickButton(driveJoystick,
+                SHIFT_GEAR_DOWN_BUTTON.value);
     }
     
     public double getArcadeMoveJoy() {
