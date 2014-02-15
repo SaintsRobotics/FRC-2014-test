@@ -17,9 +17,15 @@ public class RobotMap {
     public static final int RIGHT_MOTOR_2 = 4;
     
     // Relays
-    public static final int PICKUP_RELAY = 5;
-    public static final Relay.Direction PICKUP_RELAY_DIRECTION = Relay.Direction.kBoth;
+    public static final int PICKUP_RELAY = 1;
+    public static final Relay.Direction PICKUP_RELAY_DIRECTION =
+            Relay.Direction.kBoth;
     
-    public static final int SHOOTER_RELAY = 6;
-    public static final Relay.Direction SHOOTER_RELAY_DIRECTION = Relay.Direction.kBoth;
+    public static final int SHOOTER_RELAY = 2;
+    public static final Relay.Direction SHOOTER_RELAY_DIRECTION =
+            Relay.Direction.kBoth;
+    
+    public static final int GEAR_SHIFTER_RELAY = 3;
+    public static final Relay.Direction GEAR_SHIFTER_RELAY_DIRECTION =
+            Relay.Direction.kBoth;
 }
