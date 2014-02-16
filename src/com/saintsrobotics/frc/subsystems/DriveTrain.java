@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  * @author Saints Robotics
  */
 public class DriveTrain extends Subsystem {
+    private static final double SAFETY_EXPIRATION = 0.5;
     private final RobotDrive drive;
     
     public DriveTrain() {
@@ -19,6 +20,10 @@ public class DriveTrain extends Subsystem {
         SpeedController rightMotor1 = new Talon(RobotMap.RIGHT_MOTOR_1);
         SpeedController rightMotor2 = new Talon(RobotMap.RIGHT_MOTOR_2);
         drive = new RobotDrive(leftMotor1, leftMotor2, rightMotor1, rightMotor2);
+        
+        // Enable safety mode
+        drive.setSafetyEnabled(true);
+        drive.setExpiration(SAFETY_EXPIRATION);
     }
     
     /**
@@ -44,10 +49,6 @@ public class DriveTrain extends Subsystem {
      */
     public void stop() {
         drive.stopMotor();
-    }
-    
-    public void setSafetyEnabled(boolean enabled) {
-        drive.setSafetyEnabled(enabled);
     }
     
     protected void initDefaultCommand() {}
