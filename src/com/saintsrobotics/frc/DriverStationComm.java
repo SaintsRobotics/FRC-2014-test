@@ -24,10 +24,21 @@ public class DriverStationComm {
      */
     private DriverStationComm() {}
     
+    /**
+     * Print a message to the "User messages" box in the driver station.
+     * @param message the message to be printed
+     * @param line the line number
+     */
     public static void printMessage(String message, DriverStationLCD.Line line) {
         printMessage(message, line, FIRST_COLUMN);
     }
     
+    /**
+     * Print a message to the "User messages" box in the driver station.
+     * @param message the message to be printed
+     * @param line the line number
+     * @param startingColumn the column to start printing to
+     */
     public static void printMessage(String message, DriverStationLCD.Line line,
             int startingColumn) {
         if (message.length() > DriverStationLCD.kLineLength) {
@@ -38,6 +49,11 @@ public class DriverStationComm {
         driverStationLCD.updateLCD();
     }
     
+    /**
+     * Set the state of the LED lights.
+     * @param channel the LED channel
+     * @param on true to turn the LED on
+     */
     public static void setLED(int channel, boolean on) {
         try {
             driverStationIO.setLED(channel, on);
