@@ -16,12 +16,19 @@ public class OI {
     private static final double DRIVE_JOYSTICK_DEAD_ZONE = 0.13;
     private static final int DRIVE_JOYSTICK_PORT = 1;
     
+    private static final boolean DRIVE_INVERTED = true;
+    
     private static final XboxAxis ARCADE_MOVE_JOYSTICK_AXIS = XboxAxis.LEFT_THUMB_Y;
+    private static final boolean ARCADE_MOVE_JOYSTICK_INVERTED = DRIVE_INVERTED;
+    
     private static final XboxAxis ARCADE_ROTATE_JOYSTICK_AXIS = XboxAxis.RIGHT_THUMB_X;
     private static final boolean ARCADE_ROTATE_JOYSTICK_INVERTED = true;
     
     private static final XboxAxis TANK_LEFT_JOYSTICK_AXIS = XboxAxis.LEFT_THUMB_Y;
+    private static final boolean TANK_LEFT_JOYSTICK_INVERTED = DRIVE_INVERTED;
+    
     private static final XboxAxis TANK_RIGHT_JOYSTICK_AXIS = XboxAxis.RIGHT_THUMB_Y;
+    private static final boolean TANK_RIGHT_JOYSTICK_INVERTED = DRIVE_INVERTED;
     
     private static final XboxButton PICKUP_BUTTON = XboxButton.RIGHT_BUMPER;
     private static final XboxButton RELEASE_PICKUP_BUTTON = XboxButton.LEFT_BUMPER;
@@ -66,7 +73,8 @@ public class OI {
     
     public double getArcadeMoveJoy() {
         return readAxisValue(ARCADE_MOVE_JOYSTICK_AXIS,
-                DRIVE_JOYSTICK_DEAD_ZONE);
+                DRIVE_JOYSTICK_DEAD_ZONE,
+                ARCADE_MOVE_JOYSTICK_INVERTED);
     }
     
     public double getArcadeRotateJoy() {
@@ -77,12 +85,14 @@ public class OI {
     
     public double getTankLeftJoy() {
         return readAxisValue(TANK_LEFT_JOYSTICK_AXIS,
-                DRIVE_JOYSTICK_DEAD_ZONE);
+                DRIVE_JOYSTICK_DEAD_ZONE,
+                TANK_LEFT_JOYSTICK_INVERTED);
     }
     
     public double getTankRightJoy() {
         return readAxisValue(TANK_RIGHT_JOYSTICK_AXIS,
-                DRIVE_JOYSTICK_DEAD_ZONE);
+                DRIVE_JOYSTICK_DEAD_ZONE,
+                TANK_RIGHT_JOYSTICK_INVERTED);
     }
     
     private double readAxisValue(XboxAxis axis) {
