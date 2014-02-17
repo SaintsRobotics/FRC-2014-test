@@ -5,16 +5,18 @@ package com.saintsrobotics.frc.logging;
  * @author Saints Robotics
  */
 public abstract class Logger {
-    private static final Logger logger = new ConsoleLogger();
-    
-    public static Logger getLogger() {
-        return logger;
-    }
-    
+    /**
+     * Log an exception.
+     * @param exception the exception logged
+     */
     public void log(Exception exception) {
         String message = exception.toString();
         log(message);
     }
     
+    /**
+     * Log a message.
+     * @param message the message logged
+     */
     public abstract void log(String message);
 }

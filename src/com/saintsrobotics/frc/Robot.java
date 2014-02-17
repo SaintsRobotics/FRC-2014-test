@@ -12,7 +12,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import com.saintsrobotics.frc.commands.*;
-import com.saintsrobotics.frc.logging.Logger;
+import com.saintsrobotics.frc.logging.Log;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -22,7 +22,6 @@ import com.saintsrobotics.frc.logging.Logger;
  * directory.
  */
 public class Robot extends IterativeRobot {
-    private final Logger logger = Logger.getLogger();
     private Command arcadeDriveCommand;
     private Command tankDriveCommand;
     private Command pickupBallCommand;
@@ -45,7 +44,7 @@ public class Robot extends IterativeRobot {
      * This function is called at the beginning of autonomous.
      */
     public void autonomousInit() {
-        logger.log("Autonomous has begun!");
+        Log.log("Autonomous has begun!");
     }
 
     /**
@@ -59,7 +58,7 @@ public class Robot extends IterativeRobot {
      * This function is called at the beginning of operator control.
      */
     public void teleopInit() {
-        logger.log("Teleop has begun!");
+        Log.log("Teleop has begun!");
         arcadeDriveCommand.start();
         pickupBallCommand.start();
     }
@@ -75,7 +74,7 @@ public class Robot extends IterativeRobot {
      * This function is called at the beginning of test mode.
      */
     public void testInit() {
-        logger.log("Test mode has begun!");
+        Log.log("Test mode has begun!");
     }
     
     /**
@@ -89,7 +88,7 @@ public class Robot extends IterativeRobot {
      * This function is called at the beginning of disabled mode.
      */
     public void disabledInit() {
-        logger.log("The robot has been disabled.");
+        Log.log("The robot has been disabled.");
     }
 
     /**
