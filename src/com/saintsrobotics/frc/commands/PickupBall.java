@@ -24,17 +24,17 @@ public class PickupBall extends CommandBase {
      * Called just before this Command runs the first time.
      */
     protected void initialize() {
-        if (pickup.isHalfLoaded()) {
+        if (pickup.isAtHalfLoadedState()) {
             isFinished = true;
         }
-        
-        pickup.pickup();
     }
 
     /**
      * Called repeatedly when this Command is scheduled to run.
      */
     protected void execute() {
+        pickup.pickup();
+        
         if (pickup.isHalfLoaded()) {
             isFinished = true;
             

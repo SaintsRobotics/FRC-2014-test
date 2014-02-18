@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class Pickup extends Subsystem {
     private final Relay relay;
     private final DigitalInput digitalInput;
+    private boolean isHalfLoaded;
     
     public Pickup() {
         relay = new Relay(RobotMap.PICKUP_RELAY, RobotMap.PICKUP_RELAY_DIRECTION);
@@ -20,6 +21,12 @@ public class Pickup extends Subsystem {
     }
     
     public void pickup() {
+        if (isAtHalfLoadedState() && !isHalfLoaded) {
+            isHalfLoaded = true;
+        } else if (!isAtHalfLoadedState() && isHalfLoaded) {
+            isHalfLoaded = false;
+        }
+        
         relay.set(Relay.Value.kForward);
         
         updateDashboard();
@@ -37,8 +44,12 @@ public class Pickup extends Subsystem {
         updateDashboard();
     }
     
-    public boolean isHalfLoaded() {
+    public boolean isAtHalfLoadedState() {
         return !digitalInput.get();
+    }
+    
+    public boolean isHalfLoaded() {
+        return isHalfLoaded;
     }
     
     protected void initDefaultCommand() {}
