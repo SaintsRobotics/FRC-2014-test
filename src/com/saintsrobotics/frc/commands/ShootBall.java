@@ -7,8 +7,6 @@ import com.saintsrobotics.frc.logging.Log;
  * @author Saints Robotics
  */
 public class ShootBall extends CommandBase {
-    private boolean isFinished;
-    
     public ShootBall() {
         requires(shooter);
     }
@@ -28,8 +26,6 @@ public class ShootBall extends CommandBase {
         } else {
             Log.log("Robot is not ready to shoot!");
         }
-        
-        isFinished = true;
     }
 
     /**
@@ -37,7 +33,7 @@ public class ShootBall extends CommandBase {
      * @return whether this command is finished
      */
     protected boolean isFinished() {
-        return isFinished;
+        return true;
     }
 
     /**

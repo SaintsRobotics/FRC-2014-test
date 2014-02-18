@@ -5,8 +5,6 @@ package com.saintsrobotics.frc.commands;
  * @author Saints Robotics
  */
 public class StopPickupBall extends CommandBase {
-    private boolean isFinished;
-    
     public StopPickupBall() {
         requires(pickup);
     }
@@ -21,7 +19,6 @@ public class StopPickupBall extends CommandBase {
      */
     protected void execute() {
         pickup.stop();
-        isFinished = true;
     }
 
     /**
@@ -29,7 +26,7 @@ public class StopPickupBall extends CommandBase {
      * @return whether this command is finished
      */
     protected boolean isFinished() {
-        return isFinished;
+        return true;
     }
 
     /**

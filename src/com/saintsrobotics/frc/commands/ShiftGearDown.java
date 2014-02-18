@@ -5,8 +5,6 @@ package com.saintsrobotics.frc.commands;
  * @author Saints Robotics
  */
 public class ShiftGearDown extends CommandBase {
-    private boolean isFinished;
-    
     public ShiftGearDown() {
         requires(gearShifter);
     }
@@ -21,7 +19,6 @@ public class ShiftGearDown extends CommandBase {
      */
     protected void execute() {
         gearShifter.shiftDown();
-        isFinished = true;
     }
 
     /**
@@ -29,7 +26,7 @@ public class ShiftGearDown extends CommandBase {
      * @return whether this command is finished
      */
     protected boolean isFinished() {
-        return isFinished;
+        return true;
     }
 
     /**
