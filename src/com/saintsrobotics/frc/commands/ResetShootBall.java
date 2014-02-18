@@ -15,23 +15,24 @@ public class ResetShootBall extends CommandBase {
      * Called just before this Command runs the first time.
      */
     protected void initialize() {
-        if (!shooter.isReadyToShoot()) {
-            shooter.start();
-            Log.log("Robot shooter is resetting.");
-        }
+        Log.log("Robot shooter is resetting.");
     }
 
     /**
      * Called repeatedly when this Command is scheduled to run.
      */
-    protected void execute() {}
+    protected void execute() {
+        if (!shooter.isReadyToShoot()) {
+            shooter.start();
+        }
+    }
 
     /**
      * Returns whether this command is finished.
      * @return whether this command is finished
      */
     protected boolean isFinished() {
-        return shooter.isReadyToShoot();
+        return !shooter.isShooting() && shooter.isReadyToShoot();
     }
 
     /**

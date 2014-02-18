@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class Shooter extends Subsystem {
     private final Relay relay;
     private final DigitalInput digitalInput;
+    private boolean isShooting;
     
     public Shooter() {
         relay = new Relay(RobotMap.SHOOTER_RELAY, RobotMap.SHOOTER_RELAY_DIRECTION);
@@ -20,15 +21,27 @@ public class Shooter extends Subsystem {
     }
     
     public void start() {
+        if (isReadyToShoot() && !isShooting) {
+            isShooting = true;
+        } else if (!isReadyToShoot() && isShooting) {
+            isShooting = false;
+        }
+        
         relay.set(Relay.Value.kOn);
         
         updateDashboard();
     }
     
     public void stop() {
+        isShooting = false;
+        
         relay.set(Relay.Value.kOff);
         
         updateDashboard();
+    }
+    
+    public boolean isShooting() {
+        return isShooting;
     }
     
     public boolean isReadyToShoot() {
