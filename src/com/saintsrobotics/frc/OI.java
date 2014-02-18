@@ -57,8 +57,7 @@ public class OI {
         releasePickupButton.whenReleased(new StopPickupBall());
         
         shootButton = new JoystickButton(driveJoystick, SHOOT_BUTTON.value);
-        shootButton.whenPressed(new ShootBall());
-        shootButton.whenReleased(new StopShootBall());
+        shootButton.whenPressed(new FullShootBall());
         
         shiftGearUpButton = new JoystickButton(driveJoystick,
                 SHIFT_GEAR_UP_BUTTON.value);

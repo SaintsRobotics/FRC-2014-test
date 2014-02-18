@@ -1,13 +1,11 @@
 package com.saintsrobotics.frc.commands;
 
 /**
- * Stop shooting a ball with the shooter.
+ * Reset the shooter so that it is ready to shoot.
  * @author Saints Robotics
  */
-public class StopShootBall extends CommandBase {
-    private boolean isFinished;
-    
-    public StopShootBall() {
+public class ResetShootBall extends CommandBase {
+    public ResetShootBall() {
         requires(shooter);
     }
     
@@ -20,8 +18,9 @@ public class StopShootBall extends CommandBase {
      * Called repeatedly when this Command is scheduled to run.
      */
     protected void execute() {
-        shooter.stop();
-        isFinished = true;
+        if (!shooter.isReadyToShoot()) {
+            shooter.start();
+        }
     }
 
     /**
@@ -29,13 +28,15 @@ public class StopShootBall extends CommandBase {
      * @return whether this command is finished
      */
     protected boolean isFinished() {
-        return isFinished;
+        return shooter.isReadyToShoot();
     }
 
     /**
      * Called once after isFinished returns true.
      */
-    protected void end() {}
+    protected void end() {
+        shooter.stop();
+    }
 
     /**
      * Called when another command which requires one or more of the same

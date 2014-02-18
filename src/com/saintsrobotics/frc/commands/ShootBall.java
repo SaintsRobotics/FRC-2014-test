@@ -1,5 +1,7 @@
 package com.saintsrobotics.frc.commands;
 
+import com.saintsrobotics.frc.logging.Log;
+
 /**
  * Shoot a ball with the shooter.
  * @author Saints Robotics
@@ -20,7 +22,12 @@ public class ShootBall extends CommandBase {
      * Called repeatedly when this Command is scheduled to run.
      */
     protected void execute() {
-        shooter.shoot();
+        if (shooter.isReadyToShoot()) {
+            shooter.start();
+        } else {
+            Log.log("Robot is not ready to shoot!");
+        }
+        
         isFinished = true;
     }
 
