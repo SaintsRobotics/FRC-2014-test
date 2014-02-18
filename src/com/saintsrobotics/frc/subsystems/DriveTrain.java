@@ -33,7 +33,7 @@ public class DriveTrain extends Subsystem {
      * @param rotateValue the rotation speed
      */
     public void arcadeDrive(double moveValue, double rotateValue) {
-        drive.arcadeDrive(moveValue, rotateValue);
+        drive.arcadeDrive(moveValue, rotateValue, RobotMap.SQUARED_INPUTS);
         
         SmartDashboard.putNumber("Arcade move", moveValue);
         SmartDashboard.putNumber("Arcade rotate", rotateValue);
@@ -45,7 +45,7 @@ public class DriveTrain extends Subsystem {
      * @param rightValue the speed for the right
      */
     public void tankDrive(double leftValue, double rightValue) {
-        drive.tankDrive(leftValue, rightValue);
+        drive.tankDrive(leftValue, rightValue, RobotMap.SQUARED_INPUTS);
         
         SmartDashboard.putNumber("Tank left", leftValue);
         SmartDashboard.putNumber("Tank right", rightValue);

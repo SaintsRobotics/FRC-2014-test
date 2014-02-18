@@ -16,6 +16,8 @@ public class RobotMap {
     public static final int RIGHT_MOTOR_1 = 3;
     public static final int RIGHT_MOTOR_2 = 4;
     
+    public static final boolean SQUARED_INPUTS = true;
+    
     // Relays
     public static final int PICKUP_RELAY = 2;
     public static final Relay.Direction PICKUP_RELAY_DIRECTION =
