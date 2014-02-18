@@ -1,5 +1,7 @@
 package com.saintsrobotics.frc.commands;
 
+import com.saintsrobotics.frc.logging.Log;
+
 /**
  * Reset the shooter so that it is ready to shoot.
  * @author Saints Robotics
@@ -20,6 +22,7 @@ public class ResetShootBall extends CommandBase {
     protected void execute() {
         if (!shooter.isReadyToShoot()) {
             shooter.start();
+            Log.log("Robot shooter is resetting.");
         }
     }
 
@@ -36,6 +39,7 @@ public class ResetShootBall extends CommandBase {
      */
     protected void end() {
         shooter.stop();
+        Log.log("Robot shooter has reset.");
     }
 
     /**

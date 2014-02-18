@@ -24,6 +24,7 @@ public class ShootBall extends CommandBase {
     protected void execute() {
         if (shooter.isReadyToShoot()) {
             shooter.start();
+            Log.log("Robot is shooting!");
         } else {
             Log.log("Robot is not ready to shoot!");
         }
