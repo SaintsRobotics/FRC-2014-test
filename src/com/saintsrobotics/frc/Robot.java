@@ -24,7 +24,6 @@ import com.saintsrobotics.frc.logging.Log;
 public class Robot extends IterativeRobot {
     private Command arcadeDriveCommand;
     private Command tankDriveCommand;
-    private Command pickupBallCommand;
 
     /**
      * This function is run when the robot is first started up and should be
@@ -34,7 +33,6 @@ public class Robot extends IterativeRobot {
         // Initialize commands
         arcadeDriveCommand = new ArcadeDrive();
         tankDriveCommand = new TankDrive();
-        pickupBallCommand = new PickupBall();
 
         // Initialize all subsystems
         CommandBase.init();
