@@ -31,4 +31,5 @@ public class RobotMap {
     
     // Digital inputs
     public static final int SHOOTER_DIGITAL_INPUT = 1;
+    public static final int PICKUP_DIGITAL_INPUT = 2;
 }

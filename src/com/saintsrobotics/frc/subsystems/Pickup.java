@@ -1,6 +1,7 @@
 package com.saintsrobotics.frc.subsystems;
 
 import com.saintsrobotics.frc.RobotMap;
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Relay;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -11,9 +12,11 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class Pickup extends Subsystem {
     private final Relay relay;
+    private final DigitalInput digitalInput;
     
     public Pickup() {
         relay = new Relay(RobotMap.PICKUP_RELAY, RobotMap.PICKUP_RELAY_DIRECTION);
+        digitalInput = new DigitalInput(RobotMap.PICKUP_DIGITAL_INPUT);
     }
     
     public void pickup() {
@@ -32,6 +35,10 @@ public class Pickup extends Subsystem {
         relay.set(Relay.Value.kOff);
         
         updateDashboard();
+    }
+    
+    public boolean isHalfLoaded() {
+        return !digitalInput.get();
     }
     
     protected void initDefaultCommand() {}
