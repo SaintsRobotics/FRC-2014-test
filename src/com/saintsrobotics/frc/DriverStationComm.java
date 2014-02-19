@@ -42,7 +42,9 @@ public class DriverStationComm {
     public static void printMessage(String message, DriverStationLCD.Line line,
             int startingColumn) {
         if (message.length() > DriverStationLCD.kLineLength) {
-            message = message.substring(0, DriverStationLCD.kLineLength);
+            message = shortenMessage(message);
+        } else {
+            message = padMessage(message);
         }
         
         driverStationLCD.println(line, startingColumn, message);
@@ -60,5 +62,25 @@ public class DriverStationComm {
         } catch (EnhancedIOException exception) {
             Log.log(exception);
         }
+    }
+    
+    /**
+     * Shorten the message to kLineLength characters long.
+     * @param message the message to shorten
+     * @return the shortened message
+     */
+    private static String shortenMessage(String message) {
+        return message.substring(0, DriverStationLCD.kLineLength);
+    }
+    
+    /**
+     * Pad the message with blanks to kLineLength characters long.
+     * @param message the message to pad blanks with
+     * @return the padded message
+     */
+    private static String padMessage(String message) {
+        String blanks = new String(new byte[DriverStationLCD.kLineLength -
+                message.length()]);
+        return message + blanks;
     }
 }
