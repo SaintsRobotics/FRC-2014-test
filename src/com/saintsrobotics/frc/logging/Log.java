@@ -8,7 +8,7 @@ public class Log {
     /**
      * The logger used. Swap this out if desired.
      */
-    private static final Logger logger = new DriverStationLogger(new ConsoleLogger());
+    private static final Logger logger = new ConsoleLogger();
     
     /**
      * Disallow instantiation.
