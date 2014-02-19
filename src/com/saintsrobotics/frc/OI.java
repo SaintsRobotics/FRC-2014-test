@@ -13,8 +13,12 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
  */
 public class OI {
     // Constants
-    private static final double DRIVE_JOYSTICK_DEAD_ZONE = 0.13;
+    private static final double XBOX_DEAD_ZONE = 0.13;
+    
+    private static final double DRIVE_JOYSTICK_DEAD_ZONE = XBOX_DEAD_ZONE;
     private static final int DRIVE_JOYSTICK_PORT = 1;
+    
+    private static final int OPERATOR_JOYSTICK_PORT = 2;
     
     private static final boolean DRIVE_INVERTED = true;
     
@@ -38,6 +42,7 @@ public class OI {
     
     // Instance members
     private final Joystick driveJoystick;
+    private final Joystick operatorJoystick;
     private final JoystickButton pickupButton;
     private final JoystickButton releasePickupButton;
     private final JoystickButton shootButton;
@@ -46,25 +51,26 @@ public class OI {
     
     public OI() {
         driveJoystick = new Joystick(DRIVE_JOYSTICK_PORT);
+        operatorJoystick = new Joystick(OPERATOR_JOYSTICK_PORT);
         
-        pickupButton = new JoystickButton(driveJoystick, PICKUP_BUTTON.value);
+        pickupButton = new JoystickButton(operatorJoystick, PICKUP_BUTTON.value);
         pickupButton.whenPressed(new PickupBall());
         pickupButton.whenReleased(new StopPickupBall());
         
-        releasePickupButton = new JoystickButton(driveJoystick,
+        releasePickupButton = new JoystickButton(operatorJoystick,
                 RELEASE_PICKUP_BUTTON.value);
         releasePickupButton.whenPressed(new ReleasePickupBall());
         releasePickupButton.whenReleased(new StopPickupBall());
         
-        shootButton = new JoystickButton(driveJoystick, SHOOT_BUTTON.value);
+        shootButton = new JoystickButton(operatorJoystick, SHOOT_BUTTON.value);
         shootButton.whenPressed(new FullShootBall());
         
-        shiftGearUpButton = new JoystickButton(driveJoystick,
+        shiftGearUpButton = new JoystickButton(operatorJoystick,
                 SHIFT_GEAR_UP_BUTTON.value);
         shiftGearUpButton.whenPressed(new ShiftGearUp());
         shiftGearUpButton.whenReleased(new StopShiftGear());
         
-        shiftGearDownButton = new JoystickButton(driveJoystick,
+        shiftGearDownButton = new JoystickButton(operatorJoystick,
                 SHIFT_GEAR_DOWN_BUTTON.value);
         shiftGearDownButton.whenPressed(new ShiftGearDown());
         shiftGearDownButton.whenReleased(new StopShiftGear());
