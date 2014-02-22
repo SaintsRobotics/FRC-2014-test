@@ -35,6 +35,9 @@ public class OI {
     private static final XboxAxis TANK_RIGHT_JOYSTICK_AXIS = XboxAxis.RIGHT_THUMB_Y;
     private static final boolean TANK_RIGHT_JOYSTICK_INVERTED = DRIVE_INVERTED;
     
+    private static final XboxButton SLOW_MODE_BUTTON = XboxButton.RIGHT_BUMPER;
+    private static final XboxButton REVERSED_DRIVE_BUTTON = XboxButton.LEFT_BUMPER;
+    
     private static final XboxButton PICKUP_BUTTON = XboxButton.RIGHT_BUMPER;
     private static final XboxButton RELEASE_PICKUP_BUTTON = XboxButton.LEFT_BUMPER;
     private static final XboxButton SHOOT_BUTTON = XboxButton.A;
@@ -44,37 +47,47 @@ public class OI {
     // Instance members
     private final Joystick driveJoystick;
     private final Joystick operatorJoystick;
-    private final JoystickButton pickupButton;
-    private final JoystickButton releasePickupButton;
-    private final JoystickButton shootButton;
-    private final JoystickButton shiftGearUpButton;
-    private final JoystickButton shiftGearDownButton;
     
     private boolean driveSlowMode;
     private boolean driveReversed;
     
     public OI() {
+        // Drive joystick
         driveJoystick = new Joystick(DRIVE_JOYSTICK_PORT);
+        
+        JoystickButton slowModeButton = new JoystickButton(driveJoystick,
+                SLOW_MODE_BUTTON.value);
+        slowModeButton.whenPressed(new ToggleDriveSlowMode());
+        slowModeButton.whenReleased(new ToggleDriveSlowMode());
+        
+        JoystickButton reversedDriveButton = new JoystickButton(driveJoystick,
+                REVERSED_DRIVE_BUTTON.value);
+        reversedDriveButton.whenPressed(new ToggleDriveReversed());
+        reversedDriveButton.whenReleased(new ToggleDriveReversed());
+        
+        // Operator joystick
         operatorJoystick = new Joystick(OPERATOR_JOYSTICK_PORT);
         
-        pickupButton = new JoystickButton(operatorJoystick, PICKUP_BUTTON.value);
+        JoystickButton pickupButton = new JoystickButton(operatorJoystick,
+                PICKUP_BUTTON.value);
         pickupButton.whenPressed(new PickupBall());
         pickupButton.whenReleased(new StopPickupBall());
         
-        releasePickupButton = new JoystickButton(operatorJoystick,
+        JoystickButton releasePickupButton = new JoystickButton(operatorJoystick,
                 RELEASE_PICKUP_BUTTON.value);
         releasePickupButton.whenPressed(new ReleasePickupBall());
         releasePickupButton.whenReleased(new StopPickupBall());
         
-        shootButton = new JoystickButton(operatorJoystick, SHOOT_BUTTON.value);
+        JoystickButton shootButton = new JoystickButton(operatorJoystick,
+                SHOOT_BUTTON.value);
         shootButton.whenPressed(new FullShootBall());
         
-        shiftGearUpButton = new JoystickButton(operatorJoystick,
+        JoystickButton shiftGearUpButton = new JoystickButton(operatorJoystick,
                 SHIFT_GEAR_UP_BUTTON.value);
         shiftGearUpButton.whenPressed(new ShiftGearUp());
         shiftGearUpButton.whenReleased(new StopShiftGear());
         
-        shiftGearDownButton = new JoystickButton(operatorJoystick,
+        JoystickButton shiftGearDownButton = new JoystickButton(operatorJoystick,
                 SHIFT_GEAR_DOWN_BUTTON.value);
         shiftGearDownButton.whenPressed(new ShiftGearDown());
         shiftGearDownButton.whenReleased(new StopShiftGear());
