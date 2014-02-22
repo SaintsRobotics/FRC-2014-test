@@ -16,8 +16,8 @@ public class ToggleDriveReversed extends CommandBase {
      * Called repeatedly when this Command is scheduled to run.
      */
     protected void execute() {
-        boolean currentReversed = driveTrain.isReversed();
-        driveTrain.setReversed(!currentReversed);
+        boolean currentReversed = oi.isDriveReversed();
+        oi.setDriveReversed(!currentReversed);
     }
 
     /**

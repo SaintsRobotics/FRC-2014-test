@@ -20,6 +20,7 @@ public class OI {
     
     private static final int OPERATOR_JOYSTICK_PORT = 2;
     
+    private static final double DRIVE_SLOW_MODE_FACTOR = 0.2;
     private static final boolean DRIVE_INVERTED = true;
     
     private static final XboxAxis ARCADE_MOVE_JOYSTICK_AXIS = XboxAxis.LEFT_THUMB_Y;
@@ -49,6 +50,9 @@ public class OI {
     private final JoystickButton shiftGearUpButton;
     private final JoystickButton shiftGearDownButton;
     
+    private boolean driveSlowMode;
+    private boolean driveReversed;
+    
     public OI() {
         driveJoystick = new Joystick(DRIVE_JOYSTICK_PORT);
         operatorJoystick = new Joystick(OPERATOR_JOYSTICK_PORT);
@@ -77,27 +81,51 @@ public class OI {
     }
     
     public double getArcadeMoveJoy() {
-        return readAxisValue(ARCADE_MOVE_JOYSTICK_AXIS,
+        double axisValue = readAxisValue(ARCADE_MOVE_JOYSTICK_AXIS,
                 DRIVE_JOYSTICK_DEAD_ZONE,
                 ARCADE_MOVE_JOYSTICK_INVERTED);
+        
+        return adjustDriveValue(axisValue);
     }
     
     public double getArcadeRotateJoy() {
-        return readAxisValue(ARCADE_ROTATE_JOYSTICK_AXIS,
+        double axisValue = readAxisValue(ARCADE_ROTATE_JOYSTICK_AXIS,
                 DRIVE_JOYSTICK_DEAD_ZONE,
                 ARCADE_ROTATE_JOYSTICK_INVERTED);
+        
+        return adjustDriveValue(axisValue);
     }
     
     public double getTankLeftJoy() {
-        return readAxisValue(TANK_LEFT_JOYSTICK_AXIS,
+        double axisValue = readAxisValue(TANK_LEFT_JOYSTICK_AXIS,
                 DRIVE_JOYSTICK_DEAD_ZONE,
                 TANK_LEFT_JOYSTICK_INVERTED);
+        
+        return adjustDriveValue(axisValue);
     }
     
     public double getTankRightJoy() {
-        return readAxisValue(TANK_RIGHT_JOYSTICK_AXIS,
+        double axisValue = readAxisValue(TANK_RIGHT_JOYSTICK_AXIS,
                 DRIVE_JOYSTICK_DEAD_ZONE,
                 TANK_RIGHT_JOYSTICK_INVERTED);
+        
+        return adjustDriveValue(axisValue);
+    }
+    
+    public boolean isDriveSlowMode() {
+        return driveSlowMode;
+    }
+    
+    public void setDriveSlowMode(boolean driveSlowMode) {
+        this.driveSlowMode = driveSlowMode;
+    }
+    
+    public boolean isDriveReversed() {
+        return driveReversed;
+    }
+    
+    public void setDriveReversed(boolean driveReversed) {
+        this.driveReversed = driveReversed;
     }
     
     private double readAxisValue(XboxAxis axis) {
@@ -117,6 +145,20 @@ public class OI {
         }
         
         value = deadZone(value, deadZone);
+        
+        return value;
+    }
+    
+    private double adjustDriveValue(double value) {
+        // Reverse
+        if (driveReversed) {
+            value = -value;
+        }
+        
+        // Slow mode
+        if (driveSlowMode) {
+            value *= DRIVE_SLOW_MODE_FACTOR;
+        }
         
         return value;
     }

@@ -16,8 +16,8 @@ public class ToggleDriveSlowMode extends CommandBase {
      * Called repeatedly when this Command is scheduled to run.
      */
     protected void execute() {
-        boolean currentSlowMode = driveTrain.isSlowMode();
-        driveTrain.setSlowMode(!currentSlowMode);
+        boolean currentSlowMode = oi.isDriveSlowMode();
+        oi.setDriveSlowMode(!currentSlowMode);
     }
 
     /**
