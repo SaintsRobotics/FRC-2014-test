@@ -1,7 +1,7 @@
 package com.saintsrobotics.frc.subsystems;
 
 import com.saintsrobotics.frc.RobotMap;
-import edu.wpi.first.wpilibj.Relay;
+import edu.wpi.first.wpilibj.Servo;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -10,53 +10,44 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  * @author Saints Robotics
  */
 public class GearShifter extends Subsystem {
-    private final Relay relay;
+    private static final double HIGH = 1;
+    private static final double LOW = 0;
+    
+    private final Servo servo1;
+    private final Servo servo2;
     
     public GearShifter() {
-        relay = new Relay(RobotMap.GEAR_SHIFTER_RELAY,
-                RobotMap.GEAR_SHIFTER_RELAY_DIRECTION);
+        servo1 = new Servo(RobotMap.GEAR_SHIFTER_SERVO_1);
+        servo2 = new Servo(RobotMap.GEAR_SHIFTER_SERVO_2);
     }
     
     /**
-     * Returns whether the robot is in the higher gear.
-     * @return whether the robot is in the higher gear
+     * Shift the gear up to high gear.
      */
-    public boolean isHigherGear() {
-        Relay.Value relayState = relay.get();
-        
-        return relayState.equals(Relay.Value.kForward);
-    }
-    
-    /**
-     * Shift the gear up.
-     */
-    public void shiftUp() {
-        relay.set(Relay.Value.kForward);
+    public void shiftToHighGear() {
+        servo1.set(HIGH);
+        servo2.set(LOW);
         
         updateDashboard();
     }
     
     /**
-     * Shift the gear down.
+     * Shift the gear down to low gear.
      */
-    public void shiftDown() {
-        relay.set(Relay.Value.kReverse);
-        
-        updateDashboard();
-    }
-    
-    /**
-     * Stop shifting gears.
-     */
-    public void stop() {
-        relay.set(Relay.Value.kOff);
+    public void shiftToLowGear() {
+        servo1.set(LOW);
+        servo2.set(HIGH);
         
         updateDashboard();
     }
 
     protected void initDefaultCommand() {}
     
+    private boolean inHighGear() {
+        return servo1.get() == HIGH && servo2.get() == LOW;
+    }
+    
     private void updateDashboard() {
-        SmartDashboard.putString("Gear shifter", relay.get().toString());
+        SmartDashboard.putString("Gear shifter in high gear", inHighGear() ? "True" : "False");
     }
 }

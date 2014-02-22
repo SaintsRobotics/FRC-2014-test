@@ -27,11 +27,10 @@ public class RobotMap {
     public static final Relay.Direction SHOOTER_RELAY_DIRECTION =
             Relay.Direction.kForward;
     
-    public static final int GEAR_SHIFTER_RELAY = 3;
-    public static final Relay.Direction GEAR_SHIFTER_RELAY_DIRECTION =
-            Relay.Direction.kBoth;
+    public static final int GEAR_SHIFTER_SERVO_1 = 9;
+    public static final int GEAR_SHIFTER_SERVO_2 = 10;
     
     // Digital inputs
-    public static final int SHOOTER_DIGITAL_INPUT = 1;
     public static final int PICKUP_DIGITAL_INPUT = 2;
+    public static final int SHOOTER_DIGITAL_INPUT = 1;
 }

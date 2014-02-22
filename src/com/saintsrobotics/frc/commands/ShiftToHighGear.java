@@ -1,11 +1,11 @@
 package com.saintsrobotics.frc.commands;
 
 /**
- * Stop shifting gears.
+ * Shift the gear up to high gear.
  * @author Saints Robotics
  */
-public class StopShiftGear extends CommandBase {
-    public StopShiftGear() {
+public class ShiftToHighGear extends CommandBase {
+    public ShiftToHighGear() {
         requires(gearShifter);
     }
     
@@ -18,7 +18,7 @@ public class StopShiftGear extends CommandBase {
      * Called repeatedly when this Command is scheduled to run.
      */
     protected void execute() {
-        gearShifter.stop();
+        gearShifter.shiftToHighGear();
     }
 
     /**
