@@ -3,7 +3,8 @@ package com.saintsrobotics.frc.commands;
 import com.saintsrobotics.frc.logging.Log;
 
 /**
- * Shoot a ball with the shooter.
+ * Shoot a ball with the shooter, but do not reset the position of the shooter.
+ * Useful for resetting the shooter to the un-tensioned position.
  * @author Saints Robotics
  */
 public class ShootBall extends CommandBase {

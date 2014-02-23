@@ -40,7 +40,8 @@ public class OI {
     
     private static final XboxButton PICKUP_BUTTON = XboxButton.RIGHT_BUMPER;
     private static final XboxButton RELEASE_PICKUP_BUTTON = XboxButton.LEFT_BUMPER;
-    private static final XboxButton SHOOT_BUTTON = XboxButton.A;
+    private static final XboxButton FULL_SHOOT_BUTTON = XboxButton.A;
+    private static final XboxButton SHOOT_BUTTON = XboxButton.B;
     
     // Instance members
     private final Joystick driveJoystick;
@@ -75,9 +76,13 @@ public class OI {
         releasePickupButton.whenPressed(new ReleasePickupBall());
         releasePickupButton.whenReleased(new StopPickupBall());
         
+        JoystickButton fullShootButton = new JoystickButton(operatorJoystick,
+                FULL_SHOOT_BUTTON.value);
+        fullShootButton.whenPressed(new FullShootBall());
+        
         JoystickButton shootButton = new JoystickButton(operatorJoystick,
                 SHOOT_BUTTON.value);
-        shootButton.whenPressed(new FullShootBall());
+        shootButton.whenPressed(new ShootBall());
     }
     
     public double getArcadeMoveJoy() {
