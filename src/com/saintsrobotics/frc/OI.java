@@ -35,35 +35,32 @@ public class OI {
     private static final XboxAxis TANK_RIGHT_JOYSTICK_AXIS = XboxAxis.RIGHT_THUMB_Y;
     private static final boolean TANK_RIGHT_JOYSTICK_INVERTED = DRIVE_INVERTED;
     
-    private static final XboxButton SLOW_MODE_BUTTON = XboxButton.RIGHT_BUMPER;
-    private static final XboxButton REVERSED_DRIVE_BUTTON = XboxButton.LEFT_BUMPER;
+    private static final XboxButton SLOW_MODE_BUTTON = XboxButton.LEFT_BUMPER;
+    private static final XboxButton SHIFT_GEAR_DOWN_BUTTON = XboxButton.RIGHT_BUMPER;
     
     private static final XboxButton PICKUP_BUTTON = XboxButton.RIGHT_BUMPER;
     private static final XboxButton RELEASE_PICKUP_BUTTON = XboxButton.LEFT_BUMPER;
     private static final XboxButton SHOOT_BUTTON = XboxButton.A;
-    private static final XboxButton SHIFT_GEAR_UP_BUTTON = XboxButton.B;
-    private static final XboxButton SHIFT_GEAR_DOWN_BUTTON = XboxButton.X;
     
     // Instance members
     private final Joystick driveJoystick;
     private final Joystick operatorJoystick;
     
     private boolean driveSlowMode;
-    private boolean driveReversed;
     
     public OI() {
         // Drive joystick
         driveJoystick = new Joystick(DRIVE_JOYSTICK_PORT);
         
+        JoystickButton shiftGearDownButton = new JoystickButton(driveJoystick,
+                SHIFT_GEAR_DOWN_BUTTON.value);
+        shiftGearDownButton.whenPressed(new ShiftToLowGear());
+        shiftGearDownButton.whenReleased(new ShiftToHighGear());
+        
         JoystickButton slowModeButton = new JoystickButton(driveJoystick,
                 SLOW_MODE_BUTTON.value);
         slowModeButton.whenPressed(new ToggleDriveSlowMode());
         slowModeButton.whenReleased(new ToggleDriveSlowMode());
-        
-        JoystickButton reversedDriveButton = new JoystickButton(driveJoystick,
-                REVERSED_DRIVE_BUTTON.value);
-        reversedDriveButton.whenPressed(new ToggleDriveReversed());
-        reversedDriveButton.whenReleased(new ToggleDriveReversed());
         
         // Operator joystick
         operatorJoystick = new Joystick(OPERATOR_JOYSTICK_PORT);
@@ -81,14 +78,6 @@ public class OI {
         JoystickButton shootButton = new JoystickButton(operatorJoystick,
                 SHOOT_BUTTON.value);
         shootButton.whenPressed(new FullShootBall());
-        
-        JoystickButton shiftGearUpButton = new JoystickButton(operatorJoystick,
-                SHIFT_GEAR_UP_BUTTON.value);
-        shiftGearUpButton.whenPressed(new ShiftToHighGear());
-        
-        JoystickButton shiftGearDownButton = new JoystickButton(operatorJoystick,
-                SHIFT_GEAR_DOWN_BUTTON.value);
-        shiftGearDownButton.whenPressed(new ShiftToLowGear());
     }
     
     public double getArcadeMoveJoy() {
@@ -131,14 +120,6 @@ public class OI {
         this.driveSlowMode = driveSlowMode;
     }
     
-    public boolean isDriveReversed() {
-        return driveReversed;
-    }
-    
-    public void setDriveReversed(boolean driveReversed) {
-        this.driveReversed = driveReversed;
-    }
-    
     private double readAxisValue(XboxAxis axis) {
         return readAxisValue(axis, 0);
     }
@@ -161,11 +142,6 @@ public class OI {
     }
     
     private double adjustDriveValue(double value) {
-        // Reverse
-        if (driveReversed) {
-            value = -value;
-        }
-        
         // Slow mode
         if (driveSlowMode) {
             value *= DRIVE_SLOW_MODE_FACTOR;
