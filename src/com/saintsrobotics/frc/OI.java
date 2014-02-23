@@ -20,7 +20,7 @@ public class OI {
     
     private static final int OPERATOR_JOYSTICK_PORT = 2;
     
-    private static final double DRIVE_SLOW_MODE_FACTOR = 0.2;
+    private static final int DRIVE_SLOW_MODE_FACTOR = 7;
     private static final boolean DRIVE_INVERTED = true;
     
     private static final XboxAxis ARCADE_MOVE_JOYSTICK_AXIS = XboxAxis.LEFT_THUMB_Y;
@@ -149,7 +149,7 @@ public class OI {
     private double adjustDriveValue(double value) {
         // Slow mode
         if (driveSlowMode) {
-            value *= DRIVE_SLOW_MODE_FACTOR;
+            value /= DRIVE_SLOW_MODE_FACTOR;
         }
         
         return value;
