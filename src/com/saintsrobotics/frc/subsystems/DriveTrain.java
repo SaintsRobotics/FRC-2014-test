@@ -1,6 +1,6 @@
 package com.saintsrobotics.frc.subsystems;
 
-import com.saintsrobotics.frc.RobotMap;
+import com.saintsrobotics.frc.Constants;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.Talon;
@@ -16,10 +16,10 @@ public class DriveTrain extends Subsystem {
     private final RobotDrive drive;
     
     public DriveTrain() {
-        SpeedController leftMotor1 = new Talon(RobotMap.LEFT_MOTOR_1);
-        SpeedController leftMotor2 = new Talon(RobotMap.LEFT_MOTOR_2);
-        SpeedController rightMotor1 = new Talon(RobotMap.RIGHT_MOTOR_1);
-        SpeedController rightMotor2 = new Talon(RobotMap.RIGHT_MOTOR_2);
+        SpeedController leftMotor1 = new Talon(Constants.LEFT_MOTOR_1);
+        SpeedController leftMotor2 = new Talon(Constants.LEFT_MOTOR_2);
+        SpeedController rightMotor1 = new Talon(Constants.RIGHT_MOTOR_1);
+        SpeedController rightMotor2 = new Talon(Constants.RIGHT_MOTOR_2);
         drive = new RobotDrive(leftMotor1, leftMotor2, rightMotor1, rightMotor2);
         
         // Enable safety mode
@@ -34,7 +34,7 @@ public class DriveTrain extends Subsystem {
      */
     public void arcadeDrive(double moveValue, double rotateValue) {
         // Drive!
-        drive.arcadeDrive(moveValue, rotateValue, RobotMap.SQUARED_INPUTS);
+        drive.arcadeDrive(moveValue, rotateValue, Constants.SQUARED_INPUTS);
         
         SmartDashboard.putNumber("Arcade move", moveValue);
         SmartDashboard.putNumber("Arcade rotate", rotateValue);
@@ -47,7 +47,7 @@ public class DriveTrain extends Subsystem {
      */
     public void tankDrive(double leftValue, double rightValue) {
         // Drive!
-        drive.tankDrive(leftValue, rightValue, RobotMap.SQUARED_INPUTS);
+        drive.tankDrive(leftValue, rightValue, Constants.SQUARED_INPUTS);
         
         SmartDashboard.putNumber("Tank left", leftValue);
         SmartDashboard.putNumber("Tank right", rightValue);

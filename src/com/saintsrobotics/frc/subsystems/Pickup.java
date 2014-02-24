@@ -1,6 +1,6 @@
 package com.saintsrobotics.frc.subsystems;
 
-import com.saintsrobotics.frc.RobotMap;
+import com.saintsrobotics.frc.Constants;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Relay;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -16,8 +16,8 @@ public class Pickup extends Subsystem {
     private boolean isHalfLoaded;
     
     public Pickup() {
-        relay = new Relay(RobotMap.PICKUP_RELAY, RobotMap.PICKUP_RELAY_DIRECTION);
-        digitalInput = new DigitalInput(RobotMap.PICKUP_DIGITAL_INPUT);
+        relay = new Relay(Constants.PICKUP_RELAY, Constants.PICKUP_RELAY_DIRECTION);
+        digitalInput = new DigitalInput(Constants.PICKUP_DIGITAL_INPUT);
     }
     
     public void pickup() {

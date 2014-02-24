@@ -1,6 +1,6 @@
 package com.saintsrobotics.frc.subsystems;
 
-import com.saintsrobotics.frc.RobotMap;
+import com.saintsrobotics.frc.Constants;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Relay;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -16,8 +16,8 @@ public class Shooter extends Subsystem {
     private boolean isShooting;
     
     public Shooter() {
-        relay = new Relay(RobotMap.SHOOTER_RELAY, RobotMap.SHOOTER_RELAY_DIRECTION);
-        digitalInput = new DigitalInput(RobotMap.SHOOTER_DIGITAL_INPUT);
+        relay = new Relay(Constants.SHOOTER_RELAY, Constants.SHOOTER_RELAY_DIRECTION);
+        digitalInput = new DigitalInput(Constants.SHOOTER_DIGITAL_INPUT);
     }
     
     public void start() {

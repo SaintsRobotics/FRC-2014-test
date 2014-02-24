@@ -1,6 +1,6 @@
 package com.saintsrobotics.frc.subsystems;
 
-import com.saintsrobotics.frc.RobotMap;
+import com.saintsrobotics.frc.Constants;
 import edu.wpi.first.wpilibj.Servo;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -17,8 +17,8 @@ public class GearShifter extends Subsystem {
     private final Servo servo2;
     
     public GearShifter() {
-        servo1 = new Servo(RobotMap.GEAR_SHIFTER_SERVO_1);
-        servo2 = new Servo(RobotMap.GEAR_SHIFTER_SERVO_2);
+        servo1 = new Servo(Constants.GEAR_SHIFTER_SERVO_1);
+        servo2 = new Servo(Constants.GEAR_SHIFTER_SERVO_2);
     }
     
     /**
