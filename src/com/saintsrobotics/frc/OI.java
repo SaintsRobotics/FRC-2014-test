@@ -40,8 +40,9 @@ public class OI {
     
     private static final XboxButton PICKUP_BUTTON = XboxButton.RIGHT_BUMPER;
     private static final XboxButton RELEASE_PICKUP_BUTTON = XboxButton.LEFT_BUMPER;
-    private static final XboxButton FULL_SHOOT_BUTTON = XboxButton.A;
-    private static final XboxButton SHOOT_BUTTON = XboxButton.B;
+    private static final XboxButton SHOOT_WITH_RESET_BUTTON = XboxButton.A;
+    private static final XboxButton SHOOT_WITHOUT_RESET_BUTTON = XboxButton.X;
+    private static final XboxButton STOP_SHOOT_BUTTON = XboxButton.B;
     
     // Instance members
     private final Joystick driveJoystick;
@@ -76,13 +77,17 @@ public class OI {
         releasePickupButton.whenPressed(new ReleasePickupBall());
         releasePickupButton.whenReleased(new StopPickupBall());
         
-        JoystickButton fullShootButton = new JoystickButton(operatorJoystick,
-                FULL_SHOOT_BUTTON.value);
-        fullShootButton.whenPressed(new FullShootBall());
+        JoystickButton shootWithResetButton = new JoystickButton(operatorJoystick,
+                SHOOT_WITH_RESET_BUTTON.value);
+        shootWithResetButton.whenPressed(new ShootBallWithReset());
         
-        JoystickButton shootButton = new JoystickButton(operatorJoystick,
-                SHOOT_BUTTON.value);
-        shootButton.whenPressed(new ShootBall());
+        JoystickButton shootWithoutResetButton = new JoystickButton(operatorJoystick,
+                SHOOT_WITHOUT_RESET_BUTTON.value);
+        shootWithoutResetButton.whenPressed(new ShootBallWithoutReset());
+        
+        JoystickButton stopShootButton = new JoystickButton(operatorJoystick,
+                STOP_SHOOT_BUTTON.value);
+        stopShootButton.whenPressed(new StopShootBall());
     }
     
     public double getArcadeMoveJoy() {

@@ -3,11 +3,11 @@ package com.saintsrobotics.frc.commands;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
- * Completely shoot the ball.
+ * Fully shoot a ball, including resetting the shooter arm.
  * @author Saints Robotics
  */
-public class FullShootBall extends CommandGroup {
-    public FullShootBall() {
+public class ShootBallWithReset extends CommandGroup {
+    public ShootBallWithReset() {
         addSequential(new ShootBall());
         addSequential(new ResetShootBall());
     }

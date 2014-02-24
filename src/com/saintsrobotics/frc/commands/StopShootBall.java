@@ -1,13 +1,11 @@
 package com.saintsrobotics.frc.commands;
 
-import com.saintsrobotics.frc.logging.Log;
-
 /**
- * Shoot a ball with the shooter, but do not reset the position of the shooter.
+ * Stop shooting the ball.
  * @author Saints Robotics
  */
-public class ShootBall extends CommandBase {
-    public ShootBall() {
+public class StopShootBall extends CommandBase {
+    public StopShootBall() {
         requires(shooter);
     }
     
@@ -20,12 +18,7 @@ public class ShootBall extends CommandBase {
      * Called repeatedly when this Command is scheduled to run.
      */
     protected void execute() {
-        if (shooter.isReadyToShoot()) {
-            shooter.start();
-            Log.log("Robot is shooting!");
-        } else {
-            Log.log("Robot is not ready to shoot!");
-        }
+        shooter.stop();
     }
 
     /**
@@ -33,7 +26,7 @@ public class ShootBall extends CommandBase {
      * @return whether this command is finished
      */
     protected boolean isFinished() {
-        return !shooter.isReadyToShoot();
+        return true;
     }
 
     /**
