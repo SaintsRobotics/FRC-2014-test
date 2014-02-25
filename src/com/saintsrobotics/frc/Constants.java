@@ -10,29 +10,29 @@ import edu.wpi.first.wpilibj.Relay;
  */
 public class Constants {
     // Motor mappings
-    public static final int LEFT_MOTOR_1 = 1;
-    public static final int LEFT_MOTOR_2 = 2;
+    public static final int LEFT_MOTOR_1_PORT = 1;
+    public static final int LEFT_MOTOR_2_PORT = 2;
     
-    public static final int RIGHT_MOTOR_1 = 3;
-    public static final int RIGHT_MOTOR_2 = 4;
+    public static final int RIGHT_MOTOR_1_PORT = 3;
+    public static final int RIGHT_MOTOR_2_PORT = 4;
     
     public static final boolean SQUARED_INPUTS = true;
     
     // Relay mappings
-    public static final int PICKUP_RELAY = 2;
+    public static final int PICKUP_RELAY_PORT = 2;
     public static final Relay.Direction PICKUP_RELAY_DIRECTION =
             Relay.Direction.kBoth;
     
-    public static final int SHOOTER_RELAY = 1;
+    public static final int SHOOTER_RELAY_PORT = 1;
     public static final Relay.Direction SHOOTER_RELAY_DIRECTION =
             Relay.Direction.kForward;
     
-    public static final int GEAR_SHIFTER_SERVO_1 = 9;
-    public static final int GEAR_SHIFTER_SERVO_2 = 10;
+    public static final int GEAR_SHIFTER_SERVO_1_PORT = 9;
+    public static final int GEAR_SHIFTER_SERVO_2_PORT = 10;
     
     // Digital input mappings
-    public static final int PICKUP_DIGITAL_INPUT = 2;
-    public static final int SHOOTER_DIGITAL_INPUT = 1;
+    public static final int PICKUP_DIGITAL_INPUT_PORT = 2;
+    public static final int SHOOTER_DIGITAL_INPUT_PORT = 1;
     
     // Joystick control
     public static final double XBOX_DEAD_ZONE = 0.13;

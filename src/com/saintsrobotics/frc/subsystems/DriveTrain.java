@@ -16,10 +16,10 @@ public class DriveTrain extends Subsystem {
     private final RobotDrive drive;
     
     public DriveTrain() {
-        SpeedController leftMotor1 = new Talon(Constants.LEFT_MOTOR_1);
-        SpeedController leftMotor2 = new Talon(Constants.LEFT_MOTOR_2);
-        SpeedController rightMotor1 = new Talon(Constants.RIGHT_MOTOR_1);
-        SpeedController rightMotor2 = new Talon(Constants.RIGHT_MOTOR_2);
+        SpeedController leftMotor1 = new Talon(Constants.LEFT_MOTOR_1_PORT);
+        SpeedController leftMotor2 = new Talon(Constants.LEFT_MOTOR_2_PORT);
+        SpeedController rightMotor1 = new Talon(Constants.RIGHT_MOTOR_1_PORT);
+        SpeedController rightMotor2 = new Talon(Constants.RIGHT_MOTOR_2_PORT);
         drive = new RobotDrive(leftMotor1, leftMotor2, rightMotor1, rightMotor2);
         
         // Enable safety mode

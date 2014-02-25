@@ -17,8 +17,8 @@ public class GearShifter extends Subsystem {
     private final Servo servo2;
     
     public GearShifter() {
-        servo1 = new Servo(Constants.GEAR_SHIFTER_SERVO_1);
-        servo2 = new Servo(Constants.GEAR_SHIFTER_SERVO_2);
+        servo1 = new Servo(Constants.GEAR_SHIFTER_SERVO_1_PORT);
+        servo2 = new Servo(Constants.GEAR_SHIFTER_SERVO_2_PORT);
     }
     
     /**

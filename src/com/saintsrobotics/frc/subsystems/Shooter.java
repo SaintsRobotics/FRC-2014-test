@@ -16,8 +16,9 @@ public class Shooter extends Subsystem {
     private boolean isShooting;
     
     public Shooter() {
-        relay = new Relay(Constants.SHOOTER_RELAY, Constants.SHOOTER_RELAY_DIRECTION);
-        digitalInput = new DigitalInput(Constants.SHOOTER_DIGITAL_INPUT);
+        relay = new Relay(Constants.SHOOTER_RELAY_PORT, 
+                Constants.SHOOTER_RELAY_DIRECTION);
+        digitalInput = new DigitalInput(Constants.SHOOTER_DIGITAL_INPUT_PORT);
     }
     
     public void start() {

@@ -16,8 +16,9 @@ public class Pickup extends Subsystem {
     private boolean isHalfLoaded;
     
     public Pickup() {
-        relay = new Relay(Constants.PICKUP_RELAY, Constants.PICKUP_RELAY_DIRECTION);
-        digitalInput = new DigitalInput(Constants.PICKUP_DIGITAL_INPUT);
+        relay = new Relay(Constants.PICKUP_RELAY_PORT,
+                Constants.PICKUP_RELAY_DIRECTION);
+        digitalInput = new DigitalInput(Constants.PICKUP_DIGITAL_INPUT_PORT);
     }
     
     public void pickup() {
