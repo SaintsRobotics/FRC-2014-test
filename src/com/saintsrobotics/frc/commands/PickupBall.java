@@ -1,5 +1,6 @@
 package com.saintsrobotics.frc.commands;
 
+import com.saintsrobotics.frc.logging.Log;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
@@ -34,6 +35,7 @@ public class PickupBall extends CommandBase {
      */
     protected void execute() {
         pickup.pickup();
+        Log.log("Picking up balls...");
         
         /*if (pickup.isHalfLoaded()) {
             isFinished = true;

@@ -14,7 +14,14 @@ public class ShootBall extends CommandBase {
     /**
      * Called just before this Command runs the first time.
      */
-    protected void initialize() {}
+    protected void initialize() {
+        if (shooter.isReadyToShoot()) {
+            shooter.start();
+            Log.log("Shooting...");
+        } else {
+            Log.log("Not ready to shoot!");
+        }
+    }
 
     /**
      * Called repeatedly when this Command is scheduled to run.
@@ -22,9 +29,6 @@ public class ShootBall extends CommandBase {
     protected void execute() {
         if (shooter.isReadyToShoot()) {
             shooter.start();
-            Log.log("Robot is shooting!");
-        } else {
-            Log.log("Robot is not ready to shoot!");
         }
     }
 

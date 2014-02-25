@@ -1,12 +1,12 @@
 package com.saintsrobotics.frc.commands;
 
+import com.saintsrobotics.frc.logging.Log;
+
 /**
  * Release a ball in the pickup mechanism.
  * @author Saints Robotics
  */
 public class ReleasePickupBall extends CommandBase {
-    private boolean isFinished;
-    
     public ReleasePickupBall() {
         requires(pickup);
     }
@@ -21,7 +21,7 @@ public class ReleasePickupBall extends CommandBase {
      */
     protected void execute() {
         pickup.reverse();
-        isFinished = true;
+        Log.log("Releasing balls...");
     }
 
     /**
@@ -29,7 +29,7 @@ public class ReleasePickupBall extends CommandBase {
      * @return whether this command is finished
      */
     protected boolean isFinished() {
-        return isFinished;
+        return true;
     }
 
     /**

@@ -15,7 +15,7 @@ public class ResetShootBall extends CommandBase {
      * Called just before this Command runs the first time.
      */
     protected void initialize() {
-        Log.log("Robot shooter is resetting.");
+        Log.log("Resetting shooter...");
     }
 
     /**
@@ -40,7 +40,7 @@ public class ResetShootBall extends CommandBase {
      */
     protected void end() {
         shooter.stop();
-        Log.log("Robot shooter has reset.");
+        Log.log("Shooter has reset.");
     }
 
     /**

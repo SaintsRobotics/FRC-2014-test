@@ -1,5 +1,7 @@
 package com.saintsrobotics.frc.commands;
 
+import com.saintsrobotics.frc.logging.Log;
+
 /**
  * Shift the gear up to high gear.
  * @author Saints Robotics
@@ -19,6 +21,7 @@ public class ShiftToHighGear extends CommandBase {
      */
     protected void execute() {
         gearShifter.shiftToHighGear();
+        Log.log("Shifted into high gear.");
     }
 
     /**

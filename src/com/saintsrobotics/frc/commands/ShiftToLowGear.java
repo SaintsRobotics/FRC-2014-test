@@ -1,5 +1,7 @@
 package com.saintsrobotics.frc.commands;
 
+import com.saintsrobotics.frc.logging.Log;
+
 /**
  * Shift the gear down to low gear.
  * @author Saints Robotics
@@ -19,6 +21,7 @@ public class ShiftToLowGear extends CommandBase {
      */
     protected void execute() {
         gearShifter.shiftToLowGear();
+        Log.log("Shifted into low gear.");
     }
 
     /**

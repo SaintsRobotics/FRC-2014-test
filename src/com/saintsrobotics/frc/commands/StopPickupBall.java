@@ -1,5 +1,7 @@
 package com.saintsrobotics.frc.commands;
 
+import com.saintsrobotics.frc.logging.Log;
+
 /**
  * Stop picking up a ball with the pickup mechanism.
  * @author Saints Robotics
@@ -19,6 +21,7 @@ public class StopPickupBall extends CommandBase {
      */
     protected void execute() {
         pickup.stop();
+        Log.log("Stopped picking up balls.");
     }
 
     /**

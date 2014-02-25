@@ -1,5 +1,7 @@
 package com.saintsrobotics.frc.commands;
 
+import com.saintsrobotics.frc.logging.Log;
+
 /**
  * Stop shooting the ball.
  * @author Saints Robotics
@@ -19,6 +21,7 @@ public class StopShootBall extends CommandBase {
      */
     protected void execute() {
         shooter.stop();
+        Log.log("Stopped shooting.");
     }
 
     /**
