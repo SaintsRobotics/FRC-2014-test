@@ -27,8 +27,8 @@ public class Constants {
     public static final Relay.Direction SHOOTER_RELAY_DIRECTION =
             Relay.Direction.kForward;
     
-    public static final int GEAR_SHIFTER_SERVO_1_PORT = 9;
-    public static final int GEAR_SHIFTER_SERVO_2_PORT = 10;
+    public static final int GEAR_SHIFTER_MOTOR_PORT = 10;
+    public static final double GEAR_SHIFTER_MOTOR_POWER = 1;
     
     // Digital input mappings
     public static final int PICKUP_DIGITAL_INPUT_PORT = 2;
@@ -60,6 +60,7 @@ public class Constants {
     // Button mappings
     public static final XboxButton SLOW_MODE_BUTTON = XboxButton.LEFT_BUMPER;
     public static final XboxButton SHIFT_GEAR_DOWN_BUTTON = XboxButton.RIGHT_BUMPER;
+    public static final XboxButton SHIFT_GEAR_UP_BUTTON = XboxButton.Y;
     
     public static final XboxButton PICKUP_BUTTON = XboxButton.RIGHT_BUMPER;
     public static final XboxButton RELEASE_PICKUP_BUTTON = XboxButton.LEFT_BUMPER;

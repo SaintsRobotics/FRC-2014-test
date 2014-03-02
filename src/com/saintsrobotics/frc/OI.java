@@ -23,7 +23,12 @@ public class OI {
         JoystickButton shiftGearDownButton = new JoystickButton(driveJoystick,
                 Constants.SHIFT_GEAR_DOWN_BUTTON.value);
         shiftGearDownButton.whenPressed(new ShiftToLowGear());
-        shiftGearDownButton.whenReleased(new ShiftToHighGear());
+        shiftGearDownButton.whenReleased(new StopShiftGear());
+        
+        JoystickButton shiftGearUpButton = new JoystickButton(driveJoystick,
+                Constants.SHIFT_GEAR_UP_BUTTON.value);
+        shiftGearUpButton.whenPressed(new ShiftToHighGear());
+        shiftGearUpButton.whenReleased(new StopShiftGear());
         
         JoystickButton slowModeButton = new JoystickButton(driveJoystick,
                 Constants.SLOW_MODE_BUTTON.value);
