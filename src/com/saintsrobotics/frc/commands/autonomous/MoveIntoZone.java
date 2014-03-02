@@ -9,7 +9,7 @@ import com.saintsrobotics.frc.commands.CommandBase;
 public class MoveIntoZone extends CommandBase {
     private static final int FULL_SPEED_MOVE = 1;
     private static final int FULL_SPEED_ROTATE = 0;
-    private static final double DRIVE_SECONDS = 1.5;
+    private static final double DRIVE_SECONDS = 1;
     
     private boolean isFinished;
     

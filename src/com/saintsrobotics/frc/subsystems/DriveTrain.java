@@ -1,6 +1,7 @@
 package com.saintsrobotics.frc.subsystems;
 
 import com.saintsrobotics.frc.Constants;
+import com.saintsrobotics.frc.commands.ArcadeDrive;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.Talon;
@@ -60,5 +61,7 @@ public class DriveTrain extends Subsystem {
         drive.stopMotor();
     }
     
-    protected void initDefaultCommand() {}
+    protected void initDefaultCommand() {
+        setDefaultCommand(new ArcadeDrive());
+    }
 }

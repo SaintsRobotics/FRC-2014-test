@@ -12,6 +12,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import com.saintsrobotics.frc.commands.*;
+import com.saintsrobotics.frc.commands.autonomous.BasicAutonomous;
 import com.saintsrobotics.frc.logging.Log;
 
 /**
@@ -22,18 +23,13 @@ import com.saintsrobotics.frc.logging.Log;
  * directory.
  */
 public class Robot extends IterativeRobot {
-    private Command arcadeDriveCommand;
-    private Command tankDriveCommand;
+    private Command autonomousCommand;
 
     /**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
      */
     public void robotInit() {
-        // Initialize commands
-        arcadeDriveCommand = new ArcadeDrive();
-        tankDriveCommand = new TankDrive();
-
         // Initialize all subsystems
         CommandBase.init();
     }
@@ -43,6 +39,13 @@ public class Robot extends IterativeRobot {
      */
     public void autonomousInit() {
         Log.log("Autonomous has begun!");
+        
+        // Cancel the currently-running autonomous command
+        cancelAutonomous();
+        
+        // Run the current autonomous command
+        autonomousCommand = new BasicAutonomous();
+        autonomousCommand.start();
     }
 
     /**
@@ -57,7 +60,9 @@ public class Robot extends IterativeRobot {
      */
     public void teleopInit() {
         Log.log("Teleop has begun!");
-        arcadeDriveCommand.start();
+        
+        // Cancel the currently-running autonomous command
+        cancelAutonomous();
     }
 
     /**
@@ -86,10 +91,23 @@ public class Robot extends IterativeRobot {
      */
     public void disabledInit() {
         Log.log("The robot has been disabled.");
+        
+        // Cancel the currently-running autonomous command
+        cancelAutonomous();
     }
 
     /**
      * This function is called periodically during disabled mode.
      */
     public void disabledPeriodic() {}
+    
+    /**
+     * Cancel the currently-running autonomous command, if applicable.
+     */
+    private void cancelAutonomous() {
+        if (autonomousCommand != null) {
+            autonomousCommand.cancel();
+            autonomousCommand = null;
+        }
+    }
 }
