@@ -1,20 +1,16 @@
 package com.saintsrobotics.frc.commands;
 
 import com.saintsrobotics.frc.logging.Log;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- * Pick up a ball with the pickup mechanism. There are two initial states for
- * the ball:
- * 
- * 1. The ball is not in the robot. The pickup should run until the limit switch
- *    returns false.
- * 2. The ball is already in the robot, at the half loaded point. The pickup
- *    should run continuously.
- * 
+ * Pick up a ball with the pickup mechanism. This should wait a certain time
+ * before checking the limit switch to see if it is picked up.
  * @author Saints Robotics
  */
 public class PickupBall extends CommandBase {
+    private static final double LIMIT_SWITCH_CHECK_DELAY = 0.75;
     private boolean isFinished;
     
     public PickupBall() {
@@ -25,20 +21,18 @@ public class PickupBall extends CommandBase {
      * Called just before this Command runs the first time.
      */
     protected void initialize() {
-        //if (pickup.isAtHalfLoadedState()) {
-            isFinished = true;
-        //}
+        pickup.pickup();
+        Log.log("Picking up balls...");
+        //Timer.delay(LIMIT_SWITCH_CHECK_DELAY);
     }
 
     /**
      * Called repeatedly when this Command is scheduled to run.
      */
     protected void execute() {
-        pickup.pickup();
-        Log.log("Picking up balls...");
-        
         /*if (pickup.isHalfLoaded()) {
             isFinished = true;
+            Log.log("Reached the pickup limit switch.");
             
             Command stopPickupBallCommand = new StopPickupBall();
             stopPickupBallCommand.start();
