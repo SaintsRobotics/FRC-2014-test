@@ -9,30 +9,32 @@ import edu.wpi.first.wpilibj.Relay;
  * @author Saints Robotics
  */
 public final class Constants {
-    // Motor mappings
-    public static final int LEFT_MOTOR_1_PORT = 1;
-    public static final int LEFT_MOTOR_2_PORT = 2;
+    // Drive
+    public static final int DRIVE_LEFT_MOTOR_1_PORT = 1;
+    public static final int DRIVE_LEFT_MOTOR_2_PORT = 2;
     
-    public static final int RIGHT_MOTOR_1_PORT = 3;
-    public static final int RIGHT_MOTOR_2_PORT = 4;
+    public static final int DRIVE_RIGHT_MOTOR_1_PORT = 3;
+    public static final int DRIVE_RIGHT_MOTOR_2_PORT = 4;
     
-    public static final boolean SQUARED_INPUTS = true;
+    public static final boolean DRIVE_SQUARED_INPUTS = true;
     
-    // Relay mappings
+    // Pickup
     public static final int PICKUP_RELAY_PORT = 2;
     public static final Relay.Direction PICKUP_RELAY_DIRECTION =
             Relay.Direction.kBoth;
     
+    public static final int PICKUP_DIGITAL_INPUT_PORT = 2;
+    
+    // Shooter
     public static final int SHOOTER_RELAY_PORT = 1;
     public static final Relay.Direction SHOOTER_RELAY_DIRECTION =
             Relay.Direction.kForward;
     
-    public static final int GEAR_SHIFTER_MOTOR_PORT = 10;
-    public static final double GEAR_SHIFTER_MOTOR_POWER = 1;
-    
-    // Digital input mappings
-    public static final int PICKUP_DIGITAL_INPUT_PORT = 2;
     public static final int SHOOTER_DIGITAL_INPUT_PORT = 1;
+    
+    // Gear shifter
+    public static final int GEAR_SHIFTER_MOTOR_PORT = 10;
+    public static final double GEAR_SHIFTER_MOTOR_POWER = 1.0;
     
     // Joystick control
     public static final double XBOX_DEAD_ZONE = 0.13;

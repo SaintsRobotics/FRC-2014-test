@@ -17,10 +17,10 @@ public class DriveTrain extends Subsystem {
     private final RobotDrive drive;
     
     public DriveTrain() {
-        SpeedController leftMotor1 = new Talon(Constants.LEFT_MOTOR_1_PORT);
-        SpeedController leftMotor2 = new Talon(Constants.LEFT_MOTOR_2_PORT);
-        SpeedController rightMotor1 = new Talon(Constants.RIGHT_MOTOR_1_PORT);
-        SpeedController rightMotor2 = new Talon(Constants.RIGHT_MOTOR_2_PORT);
+        SpeedController leftMotor1 = new Talon(Constants.DRIVE_LEFT_MOTOR_1_PORT);
+        SpeedController leftMotor2 = new Talon(Constants.DRIVE_LEFT_MOTOR_2_PORT);
+        SpeedController rightMotor1 = new Talon(Constants.DRIVE_RIGHT_MOTOR_1_PORT);
+        SpeedController rightMotor2 = new Talon(Constants.DRIVE_RIGHT_MOTOR_2_PORT);
         drive = new RobotDrive(leftMotor1, leftMotor2, rightMotor1, rightMotor2);
         
         // Enable safety mode
@@ -35,7 +35,7 @@ public class DriveTrain extends Subsystem {
      */
     public void arcadeDrive(double moveValue, double rotateValue) {
         // Drive!
-        drive.arcadeDrive(moveValue, rotateValue, Constants.SQUARED_INPUTS);
+        drive.arcadeDrive(moveValue, rotateValue, Constants.DRIVE_SQUARED_INPUTS);
         
         SmartDashboard.putNumber("Arcade move", moveValue);
         SmartDashboard.putNumber("Arcade rotate", rotateValue);
@@ -48,7 +48,7 @@ public class DriveTrain extends Subsystem {
      */
     public void tankDrive(double leftValue, double rightValue) {
         // Drive!
-        drive.tankDrive(leftValue, rightValue, Constants.SQUARED_INPUTS);
+        drive.tankDrive(leftValue, rightValue, Constants.DRIVE_SQUARED_INPUTS);
         
         SmartDashboard.putNumber("Tank left", leftValue);
         SmartDashboard.putNumber("Tank right", rightValue);
