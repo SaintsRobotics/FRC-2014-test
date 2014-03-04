@@ -12,11 +12,13 @@ public class BasicAutonomous extends CommandGroup {
     private static final double DRIVE_SECONDS = 1.0;
     
     public BasicAutonomous() {
+        // Move forward to lower pickup
+        addSequential(new MoveIntoZone(DRIVE_SECONDS));
+        
         // Shoot the preloaded ball!
         addSequential(new ShootBall());
         
-        // Reset the shooter as we move forward
-        addParallel(new MoveIntoZone(DRIVE_SECONDS));
-        addParallel(new ResetShootBall());
+        // Reset the shooter
+        addSequential(new ResetShootBall());
     }
 }
