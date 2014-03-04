@@ -10,13 +10,15 @@ import edu.wpi.first.wpilibj.Timer;
 public class MoveIntoZone extends CommandBase {
     private static final int FULL_SPEED_MOVE = 1;
     private static final int FULL_SPEED_ROTATE = 0;
-    private static final double DRIVE_SECONDS = 1.0;
     
+    private final double driveSeconds;
     private boolean isFinished;
     private double startTime;
     
-    public MoveIntoZone() {
+    public MoveIntoZone(double driveSeconds) {
         requires(driveTrain);
+        
+        this.driveSeconds = driveSeconds;
     }
     
     /**
@@ -38,8 +40,8 @@ public class MoveIntoZone extends CommandBase {
     protected void execute() {
         double currentTime = Timer.getFPGATimestamp();
         
-        // Stop if more than DRIVE_SECONDS have elapsed
-        if (currentTime - startTime >= DRIVE_SECONDS) {
+        // Stop if more than driveSeconds have elapsed
+        if (currentTime - startTime >= driveSeconds) {
             driveTrain.stop();
             isFinished = true;
         }
