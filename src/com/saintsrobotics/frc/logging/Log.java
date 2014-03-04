@@ -4,7 +4,7 @@ package com.saintsrobotics.frc.logging;
  * Allow static logging.
  * @author Saints Robotics
  */
-public class Log {
+public final class Log {
     /**
      * The logger used. Swap this out if desired.
      */

@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.Relay;
  * A comprehensive list of the constants used by our robot.
  * @author Saints Robotics
  */
-public class Constants {
+public final class Constants {
     // Motor mappings
     public static final int LEFT_MOTOR_1_PORT = 1;
     public static final int LEFT_MOTOR_2_PORT = 2;

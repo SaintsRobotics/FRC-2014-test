@@ -4,7 +4,7 @@ package com.saintsrobotics.frc.utilities;
  * A type-safe enum for the Xbox buttons.
  * @author Saints Robotics
  */
-public class XboxButton {
+public final class XboxButton {
     public final int value;
     
     protected static final int A_VAL = 1;

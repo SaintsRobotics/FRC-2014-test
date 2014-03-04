@@ -4,7 +4,7 @@ package com.saintsrobotics.frc.utilities;
  * A type-safe enum for the Xbox axes.
  * @author Saints Robotics
  */
-public class XboxAxis {
+public final class XboxAxis {
     public final int value;
     
     protected static final int LEFT_THUMB_X_VAL = 3;
