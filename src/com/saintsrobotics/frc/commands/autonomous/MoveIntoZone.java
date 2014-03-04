@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.Timer;
 public class MoveIntoZone extends CommandBase {
     private static final int FULL_SPEED_MOVE = 1;
     private static final int FULL_SPEED_ROTATE = 0;
-    private static final double DRIVE_SECONDS = 1;
+    private static final double DRIVE_SECONDS = 1.0;
     
     private boolean isFinished;
     private double startTime;
