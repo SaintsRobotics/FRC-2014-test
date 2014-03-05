@@ -44,7 +44,7 @@ public final class Constants {
     
     public static final int OPERATOR_JOYSTICK_PORT = 2;
     
-    public static final int DRIVE_SLOW_MODE_FACTOR = 7;
+    public static final int DRIVE_SLOW_MODE_FACTOR = 3;
     public static final boolean DRIVE_INVERTED = true;
     
     public static final XboxAxis ARCADE_MOVE_JOYSTICK_AXIS = XboxAxis.LEFT_THUMB_Y;
