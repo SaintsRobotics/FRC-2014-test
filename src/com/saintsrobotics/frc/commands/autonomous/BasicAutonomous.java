@@ -9,7 +9,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
  * @author Saints Robotics
  */
 public class BasicAutonomous extends CommandGroup {
-    private static final double DRIVE_SECONDS = 1.0;
+    private static final double DRIVE_SECONDS = 2.0;
     
     public BasicAutonomous() {
         // Move forward to lower pickup
