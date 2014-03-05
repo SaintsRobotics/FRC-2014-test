@@ -19,9 +19,8 @@ public final class Constants {
     public static final boolean DRIVE_SQUARED_INPUTS = true;
     
     // Pickup
-    public static final int PICKUP_RELAY_PORT = 2;
-    public static final Relay.Direction PICKUP_RELAY_DIRECTION =
-            Relay.Direction.kBoth;
+    public static final int PICKUP_MOTOR_PORT = 2;
+    public static final double PICKUP_MOTOR_POWER = 1.0;
     
     public static final int PICKUP_DIGITAL_INPUT_PORT = 2;
     
