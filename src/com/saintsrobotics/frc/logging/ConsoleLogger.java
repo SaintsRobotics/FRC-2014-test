@@ -4,18 +4,14 @@ package com.saintsrobotics.frc.logging;
  * A logger that logs to the console.
  * @author Saints Robotics
  */
-public class ConsoleLogger extends LoggerDecorator {
-    public ConsoleLogger() {
-        super();
-    }
+public class ConsoleLogger extends Logger {
+    public ConsoleLogger() {}
     
-    public ConsoleLogger(Logger logger) {
-        super(logger);
-    }
-    
+    /**
+     * Log a message.
+     * @param message the message logged
+     */
     public void log(String message) {
-        super.log(message);
-        
         System.out.println(message);
     }
 }

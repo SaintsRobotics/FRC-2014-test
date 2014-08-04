@@ -5,6 +5,8 @@ package com.saintsrobotics.frc.logging;
  * @author Saints Robotics
  */
 public abstract class Logger {
+    public Logger() {}
+    
     /**
      * Log an exception.
      * @param exception the exception logged

@@ -6,9 +6,9 @@ package com.saintsrobotics.frc.logging;
  */
 public final class Log {
     /**
-     * The logger used. Swap this out if desired.
+     * The loggers used. Swap this out if desired.
      */
-    private static final Logger logger = new ConsoleLogger();
+    private static final Logger[] loggers = { new ConsoleLogger() };
     
     /**
      * Disallow instantiation.
@@ -20,7 +20,9 @@ public final class Log {
      * @param message the message logged
      */
     public static void log(String message) {
-        logger.log(message);
+        for (int index = 0; index < loggers.length; index++) {
+            loggers[index].log(message);
+        }
     }
     
     /**
@@ -28,6 +30,8 @@ public final class Log {
      * @param exception the exception logged
      */
     public static void log(Exception exception) {
-        logger.log(exception);
+        for (int index = 0; index < loggers.length; index++) {
+            loggers[index].log(exception);
+        }
     }
 }
