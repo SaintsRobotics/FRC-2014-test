@@ -1,5 +1,6 @@
 package com.saintsrobotics.frc;
 
+import com.saintsrobotics.frc.logging.*;
 import com.saintsrobotics.frc.utilities.XboxAxis;
 import com.saintsrobotics.frc.utilities.XboxButton;
 import edu.wpi.first.wpilibj.Relay;
@@ -68,6 +69,9 @@ public final class Constants {
     public static final XboxButton SHOOT_WITH_RESET_BUTTON = XboxButton.A;
     public static final XboxButton SHOOT_WITHOUT_RESET_BUTTON = XboxButton.X;
     public static final XboxButton STOP_SHOOT_BUTTON = XboxButton.B;
+    
+    // Logging
+    public static final Logger[] LOGGERS = { new ConsoleLogger() };
     
     /**
      * Disallow instantiation.

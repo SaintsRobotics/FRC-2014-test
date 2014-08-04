@@ -1,15 +1,12 @@
 package com.saintsrobotics.frc.logging;
 
+import com.saintsrobotics.frc.Constants;
+
 /**
  * Allow static logging.
  * @author Saints Robotics
  */
 public final class Log {
-    /**
-     * The loggers used. Swap this out if desired.
-     */
-    private static final Logger[] loggers = { new ConsoleLogger() };
-    
     /**
      * Disallow instantiation.
      */
@@ -20,8 +17,8 @@ public final class Log {
      * @param message the message logged
      */
     public static void log(String message) {
-        for (int index = 0; index < loggers.length; index++) {
-            loggers[index].log(message);
+        for (int index = 0; index < Constants.LOGGERS.length; index++) {
+            Constants.LOGGERS[index].log(message);
         }
     }
     
@@ -30,8 +27,8 @@ public final class Log {
      * @param exception the exception logged
      */
     public static void log(Exception exception) {
-        for (int index = 0; index < loggers.length; index++) {
-            loggers[index].log(exception);
+        for (int index = 0; index < Constants.LOGGERS.length; index++) {
+            Constants.LOGGERS[index].log(exception);
         }
     }
 }
