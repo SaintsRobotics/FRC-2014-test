@@ -26,11 +26,7 @@ public class ShootBall extends CommandBase {
     /**
      * Called repeatedly when this Command is scheduled to run.
      */
-    protected void execute() {
-        if (shooter.isReadyToShoot()) {
-            shooter.start();
-        }
-    }
+    protected void execute() {}
 
     /**
      * Returns whether this command is finished.
